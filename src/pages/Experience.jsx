@@ -8,8 +8,7 @@ const Experience = () => {
       company: "Niveus Solutions part of NTT Data",
       location: "Mangaluru, Karnataka, India",
       employmentType: "Full-time",
-      logo: "https://niveussolutions.com/wp-content/uploads/2025/02/Niveus-ntt-data.png",
-      url: "https://www.niveussolutions.com/",
+      logo: assets.nivlogo,
       date: "May 2025 - Present",
       duration: "1 mo",
       skills: [
@@ -31,8 +30,7 @@ const Experience = () => {
       company: "Niveus Solutions part of NTT Data",
       location: "Mangaluru, Karnataka, India",
       employmentType: "Internship",
-      logo: "https://niveussolutions.com/wp-content/uploads/2025/02/Niveus-ntt-data.png",
-      url: "https://www.niveussolutions.com/",
+      logo: assets.nivlogo,
       date: "November 2024 - May 2025",
       duration: "6 mos",
       skills: [
@@ -48,7 +46,7 @@ const Experience = () => {
         "Collaborated with cross-functional teams to gather requirements, debug issues, and implement front-end and back-end solutions aligned with needs of the project.",
       ],
       certificate: "Internship completion certificate",
-      certificateUrl: assets.niveus,
+      certificateUrl: assets.intern,
     },
     {
       title: "Intern",

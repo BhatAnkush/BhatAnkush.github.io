@@ -261,7 +261,6 @@ const Navbar = () => {
               display: "flex",
               flexDirection: "row",
               margin: 0,
-              padding: 0,
               listStyle: "none",
               background: "rgba(255,255,255,0.95)",
               backdropFilter: "blur(20px)",

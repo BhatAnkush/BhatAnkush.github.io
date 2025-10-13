@@ -9,7 +9,8 @@ import evoluteiqInternshipCert from "./socio.svg"; // Replace with actual certif
 import sahyadriLogo from "./sahyadri.png"; // Replace with actual Sahyadri college logo
 import indraprasthaLogo from "./indraprastha.jpeg"; // Replace with actual Indraprastha college logo
 import evalute from "./evalute.jpeg";
-import niveus from "./niveus.jpeg";
+import intern from "./intern.jpeg";
+import nivlogo from "./nivlogo.svg"
 const assets = {
   aboutme,
   resume,
@@ -22,7 +23,8 @@ const assets = {
   sahyadriLogo,
   indraprasthaLogo,
   evalute,
-  niveus,
+  intern,
+  nivlogo,
 };
 
 export default assets;

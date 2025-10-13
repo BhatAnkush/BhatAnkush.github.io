@@ -19,6 +19,7 @@ import {
   FiTool,
 } from "react-icons/fi";
 
+
 const AboutPage = () => {
   const [activeTab, setActiveTab] = useState("overview");
 
@@ -28,8 +29,7 @@ const AboutPage = () => {
       company: "Niveus Solutions part of NTT Data",
       location: "Mangaluru, Karnataka, India",
       employmentType: "Full-time",
-      logo: "https://niveussolutions.com/wp-content/uploads/2025/02/Niveus-ntt-data.png",
-      url: "https://www.niveussolutions.com/",
+      logo: assets.nivlogo,
       date: "May 2025 - Present",
       duration: "1 mo",
       skills: [
@@ -51,8 +51,7 @@ const AboutPage = () => {
       company: "Niveus Solutions part of NTT Data",
       location: "Mangaluru, Karnataka, India",
       employmentType: "Internship",
-      logo: "https://niveussolutions.com/wp-content/uploads/2025/02/Niveus-ntt-data.png",
-      url: "https://www.niveussolutions.com/",
+      logo: assets.nivlogo,
       date: "November 2024 - May 2025",
       duration: "6 mos",
       skills: [
@@ -68,7 +67,7 @@ const AboutPage = () => {
         "Collaborated with cross-functional teams to gather requirements, debug issues, and implement front-end and back-end solutions aligned with needs of the project.",
       ],
       certificate: "Internship completion certificate",
-      certificateUrl: assets.niveus,
+      certificateUrl: assets.intern,
     },
     {
       title: "Intern",
@@ -76,7 +75,6 @@ const AboutPage = () => {
       location: "Remote",
       employmentType: "Internship",
       logo: "https://evoluteiq.com/wp-content/uploads/2025/02/logo-n-evoluteiq.png",
-      url: "https://evoluteiq.com/",
       date: "February 2024 - April 2024",
       duration: "3 mos",
       skills: [
