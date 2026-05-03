@@ -1,0 +1,72 @@
+{
+  "name": "Ankush Ananth Bhat",
+  "preferred_name": "Ankush",
+  "role": "Cloud Associate at Niveus Solutions (NTT Data)",
+  "location": "Mangaluru, Karnataka, India",
+  "linkedin": "https://www.linkedin.com/in/ankushab",
+  "portfolio": "https://bhatankush.github.io",
+  "github": "https://github.com/bhatankush",
+  "open_to_work": true,
+  "summary": "GCP-Certified Full-Stack & Cloud Engineer. Promoted Intern → Cloud Explorer → Cloud Associate at Niveus Solutions in 18 months.",
+  "skills": ["GCP", "Node.js", "React.js", "Express.js", "PostgreSQL", "FastAPI", "Microservices", "WebSockets", "Tailwind CSS", "JavaScript", "Python", "C++"],
+  "gcp_services": ["Compute Engine", "Cloud Functions", "Cloud Run", "Pub/Sub", "Dataplex", "Natural Language API", "Data Loss Prevention"],
+  "certifications": [
+    "Google Cloud Associate Cloud Engineer (Jul 2025 – Jul 2028)",
+    "9x Google Cloud Skill Badges (April 2025)",
+    "Python Basic – HackerRank",
+    "Java Basic – HackerRank",
+    "Problem Solving Basic – HackerRank",
+    "C++ for Beginners – Udemy"
+  ],
+  "experience": [
+    {
+      "role": "Cloud Associate",
+      "company": "Niveus Solutions (NTT Data)",
+      "period": "Nov 2025 – Present",
+      "highlights": ["Production microservices on GCP", "WebSocket real-time features", "React + Tailwind frontend"],
+      "stack": ["React.js", "Node.js", "Express.js", "FastAPI", "GCP", "WebSockets", "Microservices", "Tailwind CSS"]
+    },
+    {
+      "role": "Cloud Explorer",
+      "company": "Niveus Solutions (NTT Data)",
+      "period": "May 2025 – Nov 2025",
+      "highlights": ["PERN stack client deployments on GCP", "Delivered ahead of deadlines", "Earned GCP ACE certification"],
+      "stack": ["React.js", "Node.js", "PostgreSQL", "Express.js", "GCP", "Compute Engine", "Cloud Functions"]
+    },
+    {
+      "role": "Software Engineer Intern",
+      "company": "Niveus Solutions (NTT Data)",
+      "period": "Nov 2024 – May 2025",
+      "highlights": ["Full-stack PERN development", "REST API + React integration", "GCP deployment exposure"],
+      "stack": ["React.js", "Node.js", "PostgreSQL", "Express.js", "GCP", "JavaScript"]
+    },
+    {
+      "role": "RPA Intern",
+      "company": "EvoluteIQ",
+      "period": "Feb 2024 – Apr 2024",
+      "highlights": ["Built automation bots for business workflows"],
+      "stack": ["UiPath", "Automation Anywhere"]
+    }
+  ],
+  "education": {
+    "degree": "B.E. Information Science & Engineering",
+    "college": "Sahyadri College of Engineering & Management, Mangaluru",
+    "result": "Distinction",
+    "year": "2024"
+  },
+  "volunteering": [
+    {
+      "role": "Community Lead",
+      "org": "SOSC – Sahyadri Open Source Community",
+      "period": "Dec 2021 – Mar 2024",
+      "note": "Led 200+ member open-source student community, organized events and mentored peers"
+    },
+    {
+      "role": "Vice President",
+      "org": "Newton School",
+      "period": "Oct 2022 – Apr 2024",
+      "note": "Drove coding culture and student engagement"
+    }
+  ],
+  "contact_fallback": "For anything not covered here, connect with Ankush on LinkedIn: linkedin.com/in/ankushab — he responds to everyone."
+}

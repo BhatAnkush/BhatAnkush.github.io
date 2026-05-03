@@ -1,11 +1,10 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { readStreamableValue } from "@ai-sdk/rsc";
 import { TypingAnimation } from "@/components/ui/typing-animation";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { BlurFade } from "@/components/ui/blur-fade";
-import { askGemini, type Message } from "./actions";
+import { askGroq, type Message } from "./actions"; // ✅ correct import
 import { SendHorizontal } from "lucide-react";
 import { SmoothCursor } from "@/components/ui/smooth-cursor";
 
@@ -24,7 +23,6 @@ export default function Home() {
   const [error, setError] = useState<string | null>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
 
-  // Auto-scroll on every new message or streaming chunk
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, streamingText]);
@@ -42,58 +40,52 @@ export default function Home() {
     setLoading(true);
 
     try {
-      // Pass conversation history (excluding the new user message for the action,
-      // which accepts history separately)
-      const { output } = await askGemini(trimmed, messages);
+      // ✅ Groq returns a native ReadableStream — no readStreamableValue needed
+      const stream = await askGroq(trimmed, messages);
+      const reader = stream.getReader();
       let fullResponse = "";
 
-      for await (const chunk of readStreamableValue(output)) {
-        fullResponse += chunk;
-        setStreamingText(fullResponse);  // Live typing effect
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        fullResponse += value;
+        setStreamingText(fullResponse);
       }
 
-      // Commit the completed message to history
       setMessages((prev) => [...prev, { role: "model", content: fullResponse }]);
       setStreamingText("");
     } catch (err) {
       setError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
     } finally {
-      setLoading(false);  // Always runs, even on error
+      setLoading(false);
     }
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-black p-6 text-white">
-      {/* Typing intro — only renders once, not on every keystroke */}
+    <main className="flex min-h-screen flex-col items-center justify-start pt-20 bg-black p-6 text-white">
       <BlurFade delay={0.1} inView>
         <TypingAnimation className="text-4xl font-bold mb-10 text-blue-500">
           Ankush.portfolio
         </TypingAnimation>
       </BlurFade>
 
-      {/* Chat window */}
       <div className="relative flex h-[550px] w-full max-w-xl flex-col rounded-2xl border border-white/10 bg-zinc-950 shadow-2xl overflow-hidden">
 
-        {/* Message list */}
         <div className="flex-1 overflow-y-auto p-6 space-y-4">
           {messages.map((m, i) => (
-            // Use a stable key — not index, but index is acceptable here since
-            // messages only append, never reorder
             <BlurFade key={`msg-${i}`} delay={0} inView>
               <div className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}>
-                <div
-                  className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm leading-relaxed ${m.role === "user"
-                      ? "bg-blue-600 text-white shadow-lg"
-                      : "bg-zinc-800 text-zinc-100"
-                    }`}
-                >
+                <div className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm leading-relaxed ${
+                  m.role === "user"
+                    ? "bg-blue-600 text-white shadow-lg"
+                    : "bg-zinc-800 text-zinc-100"
+                }`}>
                   {m.content}
                 </div>
               </div>
             </BlurFade>
           ))}
 
-          {/* Streaming bubble — shows while response is coming in */}
           {streamingText && (
             <div className="flex justify-start">
               <div className="max-w-[85%] rounded-2xl px-4 py-3 text-sm leading-relaxed bg-zinc-800 text-zinc-100">
@@ -103,7 +95,6 @@ export default function Home() {
             </div>
           )}
 
-          {/* Thinking indicator — only shows before first streaming chunk arrives */}
           {loading && !streamingText && (
             <div className="flex justify-start">
               <div className="bg-zinc-800 rounded-2xl px-4 py-3">
@@ -116,16 +107,13 @@ export default function Home() {
             </div>
           )}
 
-          {/* Error state */}
           {error && (
             <p className="text-xs text-red-400 text-center">{error}</p>
           )}
 
-          {/* Scroll anchor */}
           <div ref={bottomRef} />
         </div>
 
-        {/* Input bar */}
         <div className="border-t border-white/10 p-4 flex items-center gap-2 bg-black/20 backdrop-blur-md">
           <input
             className="flex-1 bg-transparent outline-none text-sm px-2 placeholder:text-zinc-600"
@@ -148,10 +136,10 @@ export default function Home() {
         <BorderBeam size={300} duration={15} colorFrom="#3b82f6" colorTo="#9333ea" />
       </div>
 
-      {/* Character count — subtle UX hint */}
       {input.length > 1800 && (
         <p className="text-xs text-zinc-600 mt-2">{2000 - input.length} characters remaining</p>
       )}
+
       <SmoothCursor />
     </main>
   );
