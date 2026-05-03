@@ -4,6 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Navbar } from "@/components/navbar";
 import { ThemeScript } from "@/components/theme-script";
+import { Footer } from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
@@ -48,6 +49,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <Navbar />
         <main className="flex-1 pt-16">{children}</main>
+        <Footer />
         <Analytics />
         <SpeedInsights />
       </body>
