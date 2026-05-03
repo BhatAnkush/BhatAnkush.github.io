@@ -97,7 +97,7 @@ export default function ProjectsPage() {
                     {/* Icon + tag */}
                     <div className="flex items-start justify-between mb-4">
                       <div
-                        className={`flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-br ${project.gradient} shadow-lg`}
+                        className={`flex items-center justify-center w-11 h-11 rounded-xl bg-linear-to-br ${project.gradient} shadow-lg`}
                       >
                         <Icon size={20} className="text-white" />
                       </div>

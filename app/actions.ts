@@ -1,59 +1,63 @@
 "use server";
 
 import Groq from "groq-sdk";
-import myInfo from "@/lib/data.slim.json";
+import { getProfileData } from "@/lib/scraper";
+import { tokenize, detokenize } from "@/lib/tokenizer";
 
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY! });
-
-const SYSTEM_PROMPT = `
-You are Ankush Ananth Bhat's AI portfolio assistant embedded on his personal portfolio website.
-Answer questions from visitors — recruiters, collaborators, or curious developers — about Ankush.
-
-Rules:
-- Answer ONLY based on the context below. Never make up anything not in it.
-- Be concise, friendly, and specific. Keep answers under 120 words.
-- Use first person ("I", "my") when speaking as Ankush. Use third person when describing him to others.
-- If something isn't in the context, say: "I don't have that detail — connect with Ankush on LinkedIn: linkedin.com/in/ankushab"
-- Never answer questions unrelated to Ankush (no general coding help, news, math, etc).
-
-Context:
-${JSON.stringify(myInfo)}
-`.trim();
 
 export type Message = {
   role: "user" | "model";
   content: string;
 };
 
-const MAX_HISTORY = 6; // last 6 messages only — prevents token bloat
+const MAX_HISTORY = 6;
 
 export async function askGroq(
   prompt: string,
   history: Message[] = []
 ): Promise<ReadableStream<string>> {
-  // Validate input
   const trimmed = prompt.trim();
   if (!trimmed) throw new Error("Please type a message first.");
   if (trimmed.length > 2000) throw new Error("Message too long. Max 2000 characters.");
 
-  // Strip leading model messages — Groq (like Gemini) needs history to start with user
+  // 1. Get profile data (from cache — instant)
+  const myInfo = await getProfileData();
+
+  // 2. Tokenize the context to reduce tokens + protect PII
+  const contextString = typeof myInfo === "string"
+    ? myInfo
+    : JSON.stringify(myInfo);
+  const { tokenized: tokenizedContext, map } = tokenize(contextString);
+
+  // 3. Also tokenize the user prompt (handles names typed by visitor)
+  const { tokenized: tokenizedPrompt, map: promptMap } = tokenize(trimmed);
+  const fullMap = { ...map, ...promptMap }; // merge both maps for detokenization
+
+  const SYSTEM_PROMPT = `
+You are a portfolio assistant. Answer ONLY based on the context below.
+Be concise and friendly (under 120 words). Use [P1] to refer to the person.
+If not in context, say: "Connect with [P1] on LinkedIn: [LINKEDIN_101]"
+Never answer unrelated questions.
+
+Context: ${tokenizedContext}
+`.trim();
+
+  // 4. History: strip leading model turns, cap at MAX_HISTORY
   const firstUserIdx = history.findIndex((m) => m.role === "user");
   const safeHistory = firstUserIdx === -1 ? [] : history.slice(firstUserIdx);
-
-  // Keep only last MAX_HISTORY messages
   const trimmedHistory = safeHistory.slice(-MAX_HISTORY);
 
-  // Convert our Message[] → Groq's format (role: "assistant" not "model")
   const groqMessages: Groq.Chat.ChatCompletionMessageParam[] = [
     { role: "system", content: SYSTEM_PROMPT },
     ...trimmedHistory.map((m) => ({
       role: m.role === "model" ? ("assistant" as const) : ("user" as const),
       content: m.content,
     })),
-    { role: "user", content: trimmed },
+    { role: "user", content: tokenizedPrompt },
   ];
 
-  // Return a native ReadableStream — no extra packages needed
+  // 5. Stream + detokenize each chunk on the way out
   return new ReadableStream<string>({
     async start(controller) {
       try {
@@ -65,16 +69,29 @@ export async function askGroq(
           max_tokens: 300,
         });
 
+        let buffer = ""; // buffer incomplete tokens like "[P" before flushing
+
         for await (const chunk of stream) {
-          const text = chunk.choices[0]?.delta?.content ?? "";
-          if (text) controller.enqueue(text);
+          const raw = chunk.choices[0]?.delta?.content ?? "";
+          if (!raw) continue;
+
+          buffer += raw;
+
+          // Only detokenize + flush when buffer doesn't end mid-token
+          if (!buffer.match(/\[[A-Z0-9_]*$/)) {
+            const clean = detokenize(buffer, fullMap);
+            controller.enqueue(clean);
+            buffer = "";
+          }
         }
 
+        // Flush remaining buffer
+        if (buffer) controller.enqueue(detokenize(buffer, fullMap));
         controller.close();
       } catch (err) {
         console.error("[askGroq] error:", err);
         controller.error(
-          err instanceof Error ? err : new Error("Something went wrong. Please try again.")
+          err instanceof Error ? err : new Error("Something went wrong.")
         );
       }
     },

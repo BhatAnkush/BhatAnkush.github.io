@@ -72,7 +72,7 @@ export default function HomePage() {
         <BlurFade delay={0.2} inView>
           <h1 className="text-5xl sm:text-7xl font-bold tracking-tight leading-none mb-4">
             <span className="text-foreground">Ankush</span>{" "}
-            <span className="bg-gradient-to-r from-blue-400 via-blue-500 to-violet-500 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-blue-400 via-blue-500 to-violet-500 bg-clip-text text-transparent">
               Ananth Bhat
             </span>
           </h1>
