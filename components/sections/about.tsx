@@ -20,7 +20,7 @@ const TECH_STACK = [
   { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
 ];
 
-export function Hero() {
+export function About() {
   return (
     <section id="about" className="py-16 md:py-24">
       <h2 className="mb-6 text-4xl font-bold tracking-tight md:text-5xl">About Me</h2>

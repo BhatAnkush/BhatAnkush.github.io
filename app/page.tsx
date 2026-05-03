@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Hero } from "@/components/sections/Hero";
+import { About } from "@/components/sections/about";
 import { Experience } from "@/components/sections/Experience";
 import { Education } from "@/components/sections/Education";
 import { Projects } from "@/components/sections/Projects";
@@ -44,7 +44,7 @@ export default function HomePage() {
         refresh={false}
       />
       <div className="mx-auto max-w-5xl px-6 relative z-10">
-        <Hero />
+        <About />
         <Experience />
         <Education />
         <Projects />
