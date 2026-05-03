@@ -8,8 +8,29 @@
   "github": "https://github.com/bhatankush",
   "open_to_work": true,
   "summary": "GCP-Certified Full-Stack & Cloud Engineer. Promoted Intern → Cloud Explorer → Cloud Associate at Niveus Solutions in 18 months.",
-  "skills": ["GCP", "Node.js", "React.js", "Express.js", "PostgreSQL", "FastAPI", "Microservices", "WebSockets", "Tailwind CSS", "JavaScript", "Python", "C++"],
-  "gcp_services": ["Compute Engine", "Cloud Functions", "Cloud Run", "Pub/Sub", "Dataplex", "Natural Language API", "Data Loss Prevention"],
+  "skills": [
+    "GCP",
+    "Node.js",
+    "React.js",
+    "Express.js",
+    "PostgreSQL",
+    "FastAPI",
+    "Microservices",
+    "WebSockets",
+    "Tailwind CSS",
+    "JavaScript",
+    "Python",
+    "C++"
+  ],
+  "gcp_services": [
+    "Compute Engine",
+    "Cloud Functions",
+    "Cloud Run",
+    "Pub/Sub",
+    "Dataplex",
+    "Natural Language API",
+    "Data Loss Prevention"
+  ],
   "certifications": [
     "Google Cloud Associate Cloud Engineer (Jul 2025 – Jul 2028)",
     "9x Google Cloud Skill Badges (April 2025)",
@@ -23,29 +44,152 @@
       "role": "Cloud Associate",
       "company": "Niveus Solutions (NTT Data)",
       "period": "Nov 2025 – Present",
-      "highlights": ["Production microservices on GCP", "WebSocket real-time features", "React + Tailwind frontend"],
-      "stack": ["React.js", "Node.js", "Express.js", "FastAPI", "GCP", "WebSockets", "Microservices", "Tailwind CSS"]
+      "highlights": [
+        "Production microservices on GCP",
+        "WebSocket real-time features",
+        "React + Tailwind frontend"
+      ],
+      "stack": [
+        "React.js",
+        "Node.js",
+        "Express.js",
+        "FastAPI",
+        "GCP",
+        "WebSockets",
+        "Microservices",
+        "Tailwind CSS"
+      ]
     },
     {
       "role": "Cloud Explorer",
       "company": "Niveus Solutions (NTT Data)",
       "period": "May 2025 – Nov 2025",
-      "highlights": ["PERN stack client deployments on GCP", "Delivered ahead of deadlines", "Earned GCP ACE certification"],
-      "stack": ["React.js", "Node.js", "PostgreSQL", "Express.js", "GCP", "Compute Engine", "Cloud Functions"]
+      "highlights": [
+        "PERN stack client deployments on GCP",
+        "Delivered ahead of deadlines",
+        "Earned GCP ACE certification"
+      ],
+      "stack": [
+        "React.js",
+        "Node.js",
+        "PostgreSQL",
+        "Express.js",
+        "GCP",
+        "Compute Engine",
+        "Cloud Functions"
+      ]
     },
     {
       "role": "Software Engineer Intern",
       "company": "Niveus Solutions (NTT Data)",
       "period": "Nov 2024 – May 2025",
-      "highlights": ["Full-stack PERN development", "REST API + React integration", "GCP deployment exposure"],
-      "stack": ["React.js", "Node.js", "PostgreSQL", "Express.js", "GCP", "JavaScript"]
+      "highlights": [
+        "Full-stack PERN development",
+        "REST API + React integration",
+        "GCP deployment exposure"
+      ],
+      "stack": [
+        "React.js",
+        "Node.js",
+        "PostgreSQL",
+        "Express.js",
+        "GCP",
+        "JavaScript"
+      ]
     },
     {
       "role": "RPA Intern",
       "company": "EvoluteIQ",
       "period": "Feb 2024 – Apr 2024",
-      "highlights": ["Built automation bots for business workflows"],
-      "stack": ["UiPath", "Automation Anywhere"]
+      "highlights": [
+        "Built automation bots for business workflows"
+      ],
+      "stack": [
+        "UiPath",
+        "Automation Anywhere"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "SOCiO",
+      "tagline": "Full-Stack Social Media App built with React",
+      "description": "A feature-rich social media application with real-time updates, responsive design, and smooth modern UI. Built with React, Vite, and Tailwind CSS. Includes user interactions, content sharing, and intuitive navigation across all device sizes.",
+      "tech": [
+        "React.js",
+        "JavaScript",
+        "Tailwind CSS",
+        "Vite"
+      ],
+      "github": "https://github.com/BhatAnkush/SOCiO",
+      "highlights": [
+        "Real-time content sharing and interactions",
+        "Fully responsive — mobile, tablet, and desktop",
+        "Designed in Figma before implementation",
+        "Component-driven architecture with React"
+      ],
+      "category": "Full-Stack"
+    },
+    {
+      "name": "Quizzy",
+      "tagline": "Interactive Quiz App — Live on Render",
+      "description": "A live, deployed quiz application built with React and Vite. Features a clean UI and interactive quiz flow. Hosted on Render at quizzy-jxta.onrender.com.",
+      "tech": [
+        "React.js",
+        "JavaScript",
+        "CSS",
+        "Vite"
+      ],
+      "github": "https://github.com/BhatAnkush/Quizzy",
+      "live_url": "https://quizzy-jxta.onrender.com/",
+      "highlights": [
+        "Deployed and live on Render",
+        "Built with React + Vite for fast HMR development",
+        "13 commits — iterative, production-minded development"
+      ],
+      "category": "Frontend"
+    },
+    {
+      "name": "Mentor-Mentee Portal",
+      "tagline": "Database Management System for Academic Mentoring",
+      "description": "A full-stack web application for managing mentor-mentee relationships in a college setting. Mentors can perform CRUD operations on student data; mentees can view their updated marks and academic progress in real time.",
+      "tech": [
+        "PHP",
+        "JavaScript",
+        "CSS",
+        "SCSS",
+        "MySQL"
+      ],
+      "github": "https://github.com/BhatAnkush/Mentor-Mentee",
+      "highlights": [
+        "Full CRUD operations for mentor side",
+        "Real-time marks and progress view for mentees",
+        "Multi-role system — separate mentor and mentee access",
+        "Backend powered by PHP with database management"
+      ],
+      "category": "Full-Stack"
+    },
+    {
+      "name": "BhatAnkush Portfolio (This Site)",
+      "tagline": "AI-Powered Chatbot Portfolio built with Next.js + Groq",
+      "description": "This very portfolio website — built with Next.js 14, TypeScript, Tailwind CSS, and an AI chatbot powered by Groq (Llama 3.3 70B). Features streaming responses, multi-turn conversation memory, MagicUI animations, and a custom smooth cursor.",
+      "tech": [
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "Groq API",
+        "Llama 3.3 70B",
+        "MagicUI"
+      ],
+      "github": "https://github.com/BhatAnkush/BhatAnkush.github.io",
+      "live_url": "https://bhatankush.onrender.com",
+      "highlights": [
+        "AI chatbot with streaming responses via Groq (300+ tok/s)",
+        "Multi-turn conversation memory with history management",
+        "MagicUI components: BorderBeam, BlurFade, TypingAnimation, SmoothCursor",
+        "Deployed on Render"
+      ],
+      "category": "AI / Full-Stack"
     }
   ],
   "education": {
