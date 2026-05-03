@@ -2,18 +2,17 @@
 
 import Link from "next/link";
 import { BlurFade } from "@/components/ui/blur-fade";
-import { TypingAnimation } from "@/components/ui/typing-animation";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { Particles } from "@/components/ui/particles";
 import { SmoothCursor } from "@/components/ui/smooth-cursor";
 import {
   ArrowRight,
-  Bot,
   Cloud,
   Code2,
   ExternalLink,
   Layers,
 } from "lucide-react";
+import { TypingAnimation } from "@/components/ui/typing-animation";
 
 // Inline SVGs for branded social icons not available in lucide-react
 function GithubIcon({ size = 18 }: { size?: number }) {
@@ -84,7 +83,7 @@ export default function HomePage() {
               className="text-lg sm:text-xl text-muted-foreground font-medium"
               duration={40}
             >
-              Full-Stack · Cloud-Native · GCP-Certified Engineer
+            Full-Stack · Cloud-Native · GCP-Certified Engineer
             </TypingAnimation>
           </div>
         </BlurFade>
@@ -99,14 +98,6 @@ export default function HomePage() {
         {/* CTA Buttons */}
         <BlurFade delay={0.5} inView>
           <div className="flex flex-wrap gap-4 justify-center mb-16">
-            <Link
-              href="/chat"
-              className="group relative flex items-center gap-2 rounded-xl bg-blue-600 hover:bg-blue-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-500/20 transition-all duration-200 hover:shadow-blue-500/40 hover:scale-105"
-            >
-              <Bot size={16} />
-              Chat with my AI
-              <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
-            </Link>
             <Link
               href="/projects"
               className="flex items-center gap-2 rounded-xl border border-border bg-card hover:bg-accent px-6 py-3 text-sm font-semibold text-foreground transition-all duration-200 hover:scale-105"

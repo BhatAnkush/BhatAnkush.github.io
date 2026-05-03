@@ -4,15 +4,14 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
 import { cn } from "@/lib/utils";
-import { Bot, Home, User, FolderKanban, Menu, X } from "lucide-react";
+import { Home, User, FolderKanban, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { SmoothCursor } from "./ui/smooth-cursor";
 
 const NAV_LINKS = [
-  { href: "/", label: "Home", icon: Home },
-  { href: "/about", label: "About", icon: User },
-  { href: "/projects", label: "Projects", icon: FolderKanban },
-  { href: "/chat", label: "Chat", icon: Bot },
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/projects", label: "Projects" },
 ];
 
 export function Navbar() {
@@ -20,7 +19,7 @@ export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-border/40 bg-background/80 backdrop-blur-xl supports-[backdrop-filter]:bg-background/60">
+    <header className="fixed top-0 left-0 right-0 z-50 border-b border-border/40 bg-background/80 backdrop-blur-xl supports-backdrop-filter:bg-background/60">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
         {/* Logo */}
         <Link
@@ -28,12 +27,12 @@ export function Navbar() {
           className="flex items-center gap-2 font-bold text-lg tracking-tight text-foreground hover:opacity-80 transition-opacity"
         >
           <span className="text-blue-500">Ankush</span>
-          <span className="text-muted-foreground">.dev</span>
+          <span className="text-muted-foreground">Bhat</span>
         </Link>
 
         {/* Desktop Nav */}
         <ul className="hidden md:flex items-center gap-1">
-          {NAV_LINKS.map(({ href, label, icon: Icon }) => {
+          {NAV_LINKS.map(({ href, label }) => {
             const active = pathname === href;
             return (
               <li key={href}>
@@ -46,7 +45,6 @@ export function Navbar() {
                       : "text-muted-foreground hover:text-foreground hover:bg-accent"
                   )}
                 >
-                  <Icon size={15} />
                   {label}
                 </Link>
               </li>
@@ -74,7 +72,7 @@ export function Navbar() {
       {/* Mobile menu */}
       {menuOpen && (
         <div className="md:hidden border-t border-border/40 bg-background/95 backdrop-blur-xl px-6 py-4 flex flex-col gap-1">
-          {NAV_LINKS.map(({ href, label, icon: Icon }) => {
+          {NAV_LINKS.map(({ href, label }) => {
             const active = pathname === href;
             return (
               <Link
@@ -88,7 +86,6 @@ export function Navbar() {
                     : "text-muted-foreground hover:text-foreground hover:bg-accent"
                 )}
               >
-                <Icon size={16} />
                 {label}
               </Link>
             );

@@ -108,13 +108,6 @@ export default function AboutPage() {
             <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-4">
               The person behind the code
             </h1>
-            <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-              Full-Stack &amp; GCP-Certified Cloud Engineer based in{" "}
-              <span className="inline-flex items-center gap-1">
-                <MapPin size={14} className="text-blue-400" /> Mangaluru, India.
-              </span>{" "}
-              Promoted from Intern → Cloud Explorer → Cloud Associate at Niveus Solutions (NTT Data) in 18 months.
-            </p>
           </div>
         </BlurFade>
 
@@ -127,14 +120,14 @@ export default function AboutPage() {
             </div>
             <div className="relative space-y-6">
               {/* Timeline line */}
-              <div className="absolute left-0 top-2 bottom-2 w-px bg-gradient-to-b from-blue-500/50 via-violet-500/30 to-transparent ml-[7px]" />
+              <div className="absolute left-0 top-2 bottom-2 w-px bg-linear-to-b from-blue-500/50 via-violet-500/30 to-transparent ml-1.75" />
 
               {EXPERIENCE.map((exp, i) => (
                 <BlurFade key={i} delay={0.1 * i} inView>
                   <div className="relative flex gap-6 pl-8">
                     {/* Dot */}
                     <div
-                      className={`absolute left-0 top-2 w-4 h-4 rounded-full bg-gradient-to-br ${exp.color} shadow-lg`}
+                      className={`absolute left-0 top-2 w-4 h-4 rounded-full bg-linear-to-br ${exp.color} shadow-lg`}
                     />
                     <div className="relative flex-1 rounded-2xl border border-border bg-card/60 backdrop-blur-sm p-5 overflow-hidden group hover:border-blue-500/30 transition-colors">
                       <div className="flex flex-wrap items-start justify-between gap-2 mb-3">
