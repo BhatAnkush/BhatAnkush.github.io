@@ -4,12 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "CHOKIDAR_USEPOLLING=true WATCHPACK_POLLING=true next dev --webpack -p 3000 -H 0.0.0.0",
-
+    "build": "next build",
     "start": "next start",
     "lint": "eslint"
   },
   "dependencies": {
     "@magicuidesign/cli": "^1.0.3",
+    "@vercel/analytics": "^2.0.1",
     "ai": "^6.0.174",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
