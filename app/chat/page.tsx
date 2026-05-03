@@ -77,10 +77,6 @@ export default function ChatPage() {
         {/* Header */}
         <BlurFade delay={0.1} inView>
           <div className="text-center mb-8">
-            <div className="inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-1.5 text-xs font-semibold text-blue-400 mb-4 tracking-wide uppercase">
-              <Sparkles size={12} />
-              Powered by LLaMA 3.3 70B via Groq
-            </div>
             <h1 className="text-3xl sm:text-4xl font-bold text-foreground mb-2">
               Ask Ankush&apos;s AI
             </h1>
