@@ -28,7 +28,7 @@ export function Contact() {
 
         <div className="flex flex-col gap-4">
           <a
-            href="mailto:ankushabhat2002@gmail.com"
+            href="mailto:ankushbhataab@gmail.com"
             className="group flex items-center gap-4 rounded-xl border border-border/40 bg-card/20 p-4 transition-all hover:border-border/80 hover:bg-card/40"
           >
             <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-blue-500/10 text-blue-500 transition-colors group-hover:bg-blue-500 group-hover:text-white">
@@ -36,7 +36,7 @@ export function Contact() {
             </div>
             <div>
               <p className="font-semibold">Email</p>
-              <p className="text-sm text-muted-foreground">ankushabhat2002@gmail.com</p>
+              <p className="text-sm text-muted-foreground">ankushbhataab@gmail.com</p>
             </div>
           </a>
 

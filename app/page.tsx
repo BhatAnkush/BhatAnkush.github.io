@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { About } from "@/components/sections/about";
+import { About } from "@/components/sections/About";
+import { Hero } from "@/components/sections/Hero";
 import { Experience } from "@/components/sections/Experience";
 import { Education } from "@/components/sections/Education";
 import { Projects } from "@/components/sections/Projects";
@@ -38,12 +39,13 @@ export default function HomePage() {
       {/* Particle background */}
       <Particles
         className="absolute inset-0 z-0 pointer-events-none"
-        quantity={80}
+        quantity={100}
         ease={80}
         color={color}
-        refresh={false}
+        refresh
       />
       <div className="mx-auto max-w-5xl px-6 relative z-10">
+        <Hero />
         <About />
         <Experience />
         <Education />
