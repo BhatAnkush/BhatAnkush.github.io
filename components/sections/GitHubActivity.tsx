@@ -10,7 +10,7 @@ export function GitHubActivity() {
 
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         {/* Stats Card */}
-        <div className="overflow-hidden rounded-2xl border border-border/40 bg-card/20 p-2 sm:p-4 flex items-center justify-center min-h-[200px]">
+        <div className="overflow-hidden rounded-2xl border border-border/40 bg-card/20 p-2 sm:p-4 flex items-center justify-center min-h-50">
           <picture>
             <source
               media="(prefers-color-scheme: dark)"
@@ -30,7 +30,7 @@ export function GitHubActivity() {
         </div>
 
         {/* Top Languages Card */}
-        <div className="overflow-hidden rounded-2xl border border-border/40 bg-card/20 p-2 sm:p-4 flex items-center justify-center min-h-[200px]">
+        <div className="overflow-hidden rounded-2xl border border-border/40 bg-card/20 p-2 sm:p-4 flex items-center justify-center min-h-50">
           <picture>
             <source
               media="(prefers-color-scheme: dark)"

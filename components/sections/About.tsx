@@ -19,7 +19,7 @@ const TECH_STACK = [
   { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
   { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
 ];
-
+//this is About.tsx
 export function About() {
   return (
     <section id="about" className="py-16 md:py-24">
