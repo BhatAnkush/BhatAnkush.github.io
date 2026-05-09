@@ -1,4 +1,5 @@
 import { ExternalLink } from "lucide-react";
+import { Tile, TileInner } from "@/components/Tile";
 
 const CERTIFICATIONS = [
   {
@@ -35,37 +36,37 @@ const CERTIFICATIONS = [
 
 export function Certifications() {
   return (
-    <section id="certifications" className="py-16 md:py-24">
-      <div className="mb-10">
-        <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Certifications</h2>
-        <p className="mt-2 text-muted-foreground">My cloud and programming certifications validating expertise.</p>
-      </div>
+    <Tile id="certifications" surface="parchment" className="section-padding">
+      <TileInner wide>
+        <div className="mb-10">
+          <h2 className="t-display-lg">Certifications</h2>
+          <p className="mt-2 t-body text-[var(--body-muted)]">
+            My cloud and programming certifications validating expertise.
+          </p>
+        </div>
 
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
-        {CERTIFICATIONS.map((cert, i) => (
-          <div
-            key={i}
-            className="group relative flex flex-col justify-between rounded-xl border border-border/40 bg-card/20 p-5 transition-all hover:-translate-y-1 hover:border-border/80 hover:bg-card/40"
-          >
-            <div className="mb-4">
-              <span className="mb-3 inline-block text-xs font-medium text-muted-foreground">
-                {cert.date}
-              </span>
-              <h3 className="mb-1 text-lg font-bold leading-tight">{cert.title}</h3>
-              <p className="text-sm text-foreground/70">{cert.issuer}</p>
-            </div>
-
-            <a
-              href={cert.verifyLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-auto inline-flex items-center gap-1.5 text-xs font-medium text-muted-foreground transition-colors group-hover:text-foreground"
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {CERTIFICATIONS.map((cert, i) => (
+            <article
+              key={i}
+              className="rounded-[var(--radius-lg-token)] border border-[var(--hairline)] bg-[var(--canvas)] p-6"
             >
-              Verify credential <ExternalLink size={12} />
-            </a>
-          </div>
-        ))}
-      </div>
-    </section>
+              <span className="t-caption text-[var(--body-muted)]">{cert.date}</span>
+              <h3 className="mt-2 t-tagline">{cert.title}</h3>
+              <p className="mb-5 mt-1 t-caption text-[var(--ink-muted-80)]">{cert.issuer}</p>
+
+              <a
+                href={cert.verifyLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-link inline-flex items-center gap-1.5 t-caption"
+              >
+                Verify credential <ExternalLink size={12} />
+              </a>
+            </article>
+          ))}
+        </div>
+      </TileInner>
+    </Tile>
   );
 }

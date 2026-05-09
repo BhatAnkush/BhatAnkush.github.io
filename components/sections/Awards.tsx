@@ -1,3 +1,5 @@
+import { Tile, TileInner } from "@/components/Tile";
+
 const AWARDS = [
   {
     title: "GCP Associate Cloud Engineer",
@@ -21,37 +23,35 @@ const AWARDS = [
 
 export function Awards() {
   return (
-    <section id="awards" className="py-16 md:py-24">
-      <div className="mb-10">
-        <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Awards & Achievements</h2>
-        <p className="mt-2 text-muted-foreground">Recognition for my work and contributions.</p>
-      </div>
+    <Tile id="awards" surface="dark2" className="section-padding">
+      <TileInner>
+        <div className="mb-10">
+          <h2 className="t-display-lg text-[var(--on-dark)]">Awards & Achievements</h2>
+          <p className="mt-2 t-body text-[var(--on-dark-muted)]">
+            Recognition for my work and contributions.
+          </p>
+        </div>
 
-      <div className="space-y-4">
-        {AWARDS.map((award, i) => (
-          <div
-            key={i}
-            className="flex flex-col gap-4 rounded-xl border border-border/40 bg-card/20 p-5 transition-all hover:bg-card/40 sm:flex-row sm:items-center sm:p-6"
-          >
-            <div className="shrink-0">
-              <span className="inline-block rounded-full bg-blue-500/10 border border-blue-500/20 px-3 py-1 text-xs font-semibold text-blue-400">
-                {award.badge}
-              </span>
-            </div>
-            
-            <div>
-              <div className="mb-1 flex flex-col sm:flex-row sm:items-center sm:gap-2">
-                <h3 className="font-bold text-lg">{award.title}</h3>
-                <span className="hidden text-muted-foreground sm:inline">•</span>
-                <span className="text-sm font-medium text-foreground/80">{award.event}</span>
+        <div>
+          {AWARDS.map((award, i) => (
+            <article
+              key={i}
+              className="border-t border-[rgba(255,255,255,0.08)] py-6 first:border-t-0 first:pt-0"
+            >
+              <div className="mb-3">
+                <span className="inline-flex rounded-[var(--radius-pill-token)] bg-[var(--surface-tile-3)] px-3 py-1 t-caption text-[var(--on-dark)]">
+                  {award.badge}
+                </span>
               </div>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                {award.description}
-              </p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
+              <div className="mb-2 flex flex-col gap-1 sm:flex-row sm:items-center sm:gap-3">
+                <h3 className="t-tagline text-[var(--on-dark)]">{award.title}</h3>
+                <span className="t-caption text-[var(--on-dark-muted)]">{award.event}</span>
+              </div>
+              <p className="t-body text-[var(--on-dark-muted)]">{award.description}</p>
+            </article>
+          ))}
+        </div>
+      </TileInner>
+    </Tile>
   );
 }

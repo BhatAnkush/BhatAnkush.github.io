@@ -1,5 +1,5 @@
 import { TagPill } from "@/components/TagPill";
-import Image from "next/image";
+import { Tile, TileInner } from "@/components/Tile";
 
 const EXPERIENCE = [
   {
@@ -53,48 +53,43 @@ const EXPERIENCE = [
 
 export function Experience() {
   return (
-    <section id="experience" className="py-16 md:py-24">
-      <div className="mb-10">
-        <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Work Experience</h2>
-        <p className="mt-2 text-muted-foreground">My professional journey and the companies I've worked with.</p>
-      </div>
+    <Tile id="experience" surface="dark" className="section-padding">
+      <TileInner>
+        <div className="mb-10">
+          <h2 className="t-display-lg">Work Experience</h2>
+          <p className="mt-2 t-body text-[var(--on-dark-muted)]">
+            My professional journey and the companies I&apos;ve worked with.
+          </p>
+        </div>
 
-      <div className="space-y-8">
-        {EXPERIENCE.map((exp, i) => (
-          <div
-            key={i}
-            className="group relative flex flex-col gap-4 rounded-2xl border border-border/40 bg-card/20 p-6 transition-all hover:bg-card/40 sm:flex-row sm:gap-6"
-          >
-            {/* Logo placeholder - using a solid gradient block as fallback for company logo */}
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-linear-to-br from-blue-500/20 to-violet-500/20 ring-1 ring-border">
-              <span className="font-bold text-blue-500">{exp.company.charAt(0)}</span>
-            </div>
-
-            <div className="flex-1">
-              <div className="mb-1 flex flex-col sm:flex-row sm:items-center sm:justify-between">
-                <h3 className="text-xl font-bold">{exp.role}</h3>
-                <span className="mt-1 text-sm text-muted-foreground sm:mt-0">{exp.period}</span>
+        <div>
+          {EXPERIENCE.map((exp, i) => (
+            <div
+              key={i}
+              className="border-t border-[rgba(255,255,255,0.08)] py-8 first:border-t-0 first:pt-0"
+            >
+              <div className="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                <h3 className="t-tagline text-[var(--on-dark)]">{exp.role}</h3>
+                <span className="t-caption text-[var(--on-dark-muted)]">{exp.period}</span>
               </div>
-              <div className="mb-4 flex flex-col sm:flex-row sm:items-center sm:justify-between">
-                <span className="font-medium text-foreground/80">{exp.company}</span>
-                <span className="mt-1 text-sm text-muted-foreground sm:mt-0">{exp.location}</span>
+              <div className="mb-5 flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
+                <span className="t-body text-[var(--on-dark)]">{exp.company}</span>
+                <span className="t-caption text-[var(--on-dark-muted)]">{exp.location}</span>
               </div>
-
-              <ul className="mb-6 ml-4 list-outside list-disc space-y-2 text-muted-foreground">
+              <ul className="mb-5 ml-5 list-disc space-y-2 t-caption text-[var(--on-dark-muted)]">
                 {exp.highlights.map((point, j) => (
-                  <li key={j} className="pl-1 text-sm leading-relaxed">{point}</li>
+                  <li key={j}>{point}</li>
                 ))}
               </ul>
-
               <div className="flex flex-wrap gap-2">
                 {exp.tech.map((tech) => (
-                  <TagPill key={tech} label={tech} />
+                  <TagPill key={tech} label={tech} surface="dark" />
                 ))}
               </div>
             </div>
-          </div>
-        ))}
-      </div>
-    </section>
+          ))}
+        </div>
+      </TileInner>
+    </Tile>
   );
 }

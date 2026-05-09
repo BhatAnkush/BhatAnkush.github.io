@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
 import { cn } from "@/lib/utils";
@@ -17,11 +16,12 @@ const NAV_LINKS = [
   { href: "#contact", label: "Contact" },
 ];
 
+const NAV_OFFSET = 96;
+
 export function Navbar() {
   const [activeSection, setActiveSection] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // Intersection Observer for active section
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -31,7 +31,7 @@ export function Navbar() {
           }
         });
       },
-      { rootMargin: "-20% 0px -80% 0px" } // Adjust to trigger when section is in top view
+      { rootMargin: "-20% 0px -80% 0px" }
     );
 
     const sections = document.querySelectorAll("section[id]");
@@ -44,36 +44,51 @@ export function Navbar() {
 
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
-    const targetId = href.replace(/.*\#/, "");
+    const targetId = href.replace(/.*#/, "");
     const elem = document.getElementById(targetId);
     if (elem) {
-      // Offset for the fixed navbar (~64px) + a little padding
-      const top = elem.getBoundingClientRect().top + window.scrollY - 80;
-      window.scrollTo({
-        top,
-        behavior: "smooth"
-      });
-      // Also update URL hash without jumping
+      const top = elem.getBoundingClientRect().top + window.scrollY - NAV_OFFSET;
+      window.scrollTo({ top, behavior: "smooth" });
       window.history.pushState(null, "", href);
     }
     setMenuOpen(false);
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-border/40 bg-background/80 backdrop-blur-xl supports-[backdrop-filter]:bg-background/60">
-      <nav className="mx-auto flex max-w-[1200px] items-center justify-between px-6 py-3">
-        {/* Logo */}
-        <Link
-          href="/"
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="flex items-center gap-2 font-bold text-lg tracking-tight text-foreground hover:opacity-80 transition-opacity"
-        >
-          <span className="text-blue-500">Ankush</span>
-          <span className="text-muted-foreground">Bhat</span>
-        </Link>
+    <header className="fixed top-0 left-0 right-0 z-50 flex flex-col">
+      {/* global-nav — 44px black */}
+      <div className="relative flex h-11 shrink-0 items-center justify-center bg-[var(--surface-black)] px-4 text-[var(--on-dark)]">
+        <div className="pointer-events-none absolute inset-x-0 flex justify-center">
+          <span className="t-nav-link truncate px-12 text-center font-normal text-[var(--on-dark)]">
+            Ankush Ananth Bhat
+          </span>
+        </div>
+        <div className="relative z-10 ml-auto flex items-center gap-2">
+          <AnimatedThemeToggler
+            variant="circle"
+            className="flex size-9 shrink-0 items-center justify-center rounded-[var(--radius-sm-token)] bg-[var(--ink)] text-[var(--on-dark)] dark:text-black btn-press btn-focus [&_svg]:size-[18px]"
+          />
+          <button
+            type="button"
+            className="flex min-[834px]:hidden size-9 shrink-0 items-center justify-center rounded-[var(--radius-sm-token)] bg-[var(--ink)] text-[var(--on-dark)] dark:text-black btn-press btn-focus"
+            onClick={() => setMenuOpen((v) => !v)}
+            aria-label="Toggle menu"
+          >
+            {menuOpen ? <X size={18} /> : <Menu size={18} />}
+          </button>
+        </div>
+      </div>
 
-        {/* Desktop Nav */}
-        <ul className="hidden md:flex items-center gap-1 flex-wrap justify-center">
+      {/* sub-nav-frosted — 52px */}
+      <nav
+        className="flex h-[52px] shrink-0 items-center justify-between border-b border-[rgba(0,0,0,0.08)] px-4 backdrop-blur-xl backdrop-saturate-180 sm:px-6 dark:border-[rgba(255,255,255,0.08)]"
+        style={{
+          backgroundColor: "color-mix(in srgb, var(--canvas-parchment) 80%, transparent)",
+        }}
+      >
+        <span className="t-tagline shrink-0 text-[var(--ink)]"><img src="/favicon.svg" alt="favicon" /></span>
+
+        <ul className="hidden min-[834px]:flex min-[834px]:flex-wrap min-[834px]:items-center min-[834px]:justify-end min-[834px]:gap-1 min-[834px]:pl-4">
           {NAV_LINKS.map(({ href, label }) => {
             const active = activeSection === href;
             return (
@@ -82,10 +97,10 @@ export function Navbar() {
                   href={href}
                   onClick={(e) => handleScroll(e, href)}
                   className={cn(
-                    "flex items-center px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 cursor-pointer",
+                    "t-button-utility cursor-pointer rounded-[var(--radius-sm-token)] px-2.5 py-2 transition-colors",
                     active
-                      ? "bg-blue-500/10 text-blue-500"
-                      : "text-muted-foreground hover:text-foreground hover:bg-accent"
+                      ? "text-[var(--primary-action)]"
+                      : "text-[var(--ink-muted-80)] hover:text-[var(--ink)] dark:text-[var(--body-muted)] dark:hover:text-[var(--on-dark)]"
                   )}
                 >
                   {label}
@@ -95,67 +110,58 @@ export function Navbar() {
           })}
         </ul>
 
-        {/* Right Actions */}
-        <div className="flex items-center gap-3">
+        <div className="flex shrink-0 items-center gap-2 min-[834px]:ml-4">
           <a
             href="/resume/ankush-bhat.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden md:flex items-center gap-2 rounded-lg border border-border bg-card hover:bg-accent px-4 py-2 text-sm font-medium text-foreground transition-all"
+            className="t-button-utility inline-flex items-center gap-1.5 rounded-full bg-[var(--ink)] px-4 py-1.5 text-xs text-[var(--on-dark)] dark:text-black transition-opacity hover:opacity-90"
           >
-            <Download size={14} />
+            <Download className="size-3.5" />
             Resume
           </a>
-
-          <AnimatedThemeToggler
-            variant="circle"
-            className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-accent transition-all duration-200 cursor-pointer"
-          />
-          {/* Mobile hamburger */}
-          <button
-            className="md:hidden p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-accent transition-all"
-            onClick={() => setMenuOpen((v) => !v)}
-            aria-label="Toggle menu"
-          >
-            {menuOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
         </div>
       </nav>
 
-      {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden border-t border-border/40 bg-background/95 backdrop-blur-xl px-6 py-4 flex flex-col gap-1 max-h-[80vh] overflow-y-auto">
-          {NAV_LINKS.map(({ href, label }) => {
-            const active = activeSection === href;
-            return (
-              <a
-                key={href}
-                href={href}
-                onClick={(e) => handleScroll(e, href)}
-                className={cn(
-                  "flex items-center gap-2 px-4 py-3 rounded-lg text-sm font-medium transition-all cursor-pointer",
-                  active
-                    ? "bg-blue-500/10 text-blue-500"
-                    : "text-muted-foreground hover:text-foreground hover:bg-accent"
-                )}
-              >
-                {label}
-              </a>
-            );
-          })}
-          <a
-            href="/resume/ankush-bhat.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => setMenuOpen(false)}
-            className="flex items-center gap-2 px-4 py-3 mt-2 rounded-lg border border-border text-sm font-medium hover:bg-accent transition-all cursor-pointer"
-          >
-            <Download size={16} />
-            Download Resume
-          </a>
+        <div
+          className="min-[834px]:hidden border-b border-[var(--hairline)] px-4 py-3 backdrop-blur-xl backdrop-saturate-180 max-h-[min(70vh,520px)] overflow-y-auto"
+          style={{
+            backgroundColor: "color-mix(in srgb, var(--canvas-parchment) 92%, transparent)",
+          }}
+        >
+          <div className="flex flex-col gap-0.5">
+            {NAV_LINKS.map(({ href, label }) => {
+              const active = activeSection === href;
+              return (
+                <a
+                  key={href}
+                  href={href}
+                  onClick={(e) => handleScroll(e, href)}
+                  className={cn(
+                    "t-button-utility cursor-pointer rounded-[var(--radius-sm-token)] px-3 py-3",
+                    active
+                      ? "text-[var(--primary-action)]"
+                      : "text-[var(--ink-muted-80)] dark:text-[var(--body-muted)]"
+                  )}
+                >
+                  {label}
+                </a>
+              );
+            })}
+            <a
+              href="/resume/ankush-bhat.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMenuOpen(false)}
+              className="t-button-utility mt-2 flex cursor-pointer items-center gap-2 rounded-[var(--radius-sm-token)] border border-[var(--hairline)] px-3 py-3 text-[var(--ink)] dark:text-black"
+            >
+              <Download size={16} />
+              Download Resume
+            </a>
+          </div>
         </div>
       )}
     </header>
   );
 }
-

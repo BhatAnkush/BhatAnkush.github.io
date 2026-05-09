@@ -1,42 +1,41 @@
 import { Mail, Download } from "lucide-react";
 import { LinkedinIcon } from "../Icons/LinkedinIcon";
 import { GithubIcon } from "../Icons/GithubIcon";
+import { Button } from "@/components/ui/button";
+import { Tile, TileInner } from "@/components/Tile";
 
 export function Contact() {
   return (
-    <section id="contact" className="py-16 md:py-24">
-      <div className="mb-10 text-center md:text-left">
-        <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Get In Touch</h2>
-        <p className="mt-2 text-muted-foreground">Feel free to reach out if you're looking for a developer, have a question, or just want to connect.</p>
-      </div>
-
-      <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-8">
-        <div className="flex flex-col justify-center">
-          <h3 className="mb-2 text-xl font-bold">Contact Information</h3>
-          <p className="mb-8 text-muted-foreground">Connect with me through any of these platforms.</p>
-          
-          <a
-            href="/resume/ankush-bhat.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex w-fit items-center gap-2 rounded-xl bg-foreground px-6 py-3 text-sm font-semibold text-background transition-all duration-200 hover:scale-105"
-          >
-            <Download size={16} />
-            Download Resume
-          </a>
+    <Tile id="contact" surface="parchment" className="section-padding">
+      <TileInner>
+        <div className="mb-8">
+          <h2 className="t-display-lg">Get in touch.</h2>
+          <p className="mt-2 t-lead text-[var(--body-muted)]">
+            Feel free to reach out if you&apos;re looking for a developer, have a
+            question, or just want to connect.
+          </p>
         </div>
 
-        <div className="flex flex-col gap-4">
+        <div className="mb-8 flex flex-wrap gap-3">
+          <Button variant="primary" size="navPill" asChild>
+            <a href="mailto:ankushbhataab@gmail.com">Email me</a>
+          </Button>
+          <Button variant="secondaryPill" size="navPill" asChild>
+            <a href="/resume/ankush-bhat.pdf" target="_blank" rel="noopener noreferrer">
+              Download resume
+            </a>
+          </Button>
+        </div>
+
+        <div>
           <a
             href="mailto:ankushbhataab@gmail.com"
-            className="group flex items-center gap-4 rounded-xl border border-border/40 bg-card/20 p-4 transition-all hover:border-border/80 hover:bg-card/40"
+            className="flex items-center gap-4 border-t border-[var(--hairline)] py-4"
           >
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-blue-500/10 text-blue-500 transition-colors group-hover:bg-blue-500 group-hover:text-white">
-              <Mail size={24} />
-            </div>
+            <Mail size={20} className="text-[var(--primary-action)]" />
             <div>
-              <p className="font-semibold">Email</p>
-              <p className="text-sm text-muted-foreground">ankushbhataab@gmail.com</p>
+              <p className="t-body-strong">Email</p>
+              <p className="t-caption text-[var(--body-muted)]">ankushbhataab@gmail.com</p>
             </div>
           </a>
 
@@ -44,14 +43,14 @@ export function Contact() {
             href="https://www.linkedin.com/in/ankushab"
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center gap-4 rounded-xl border border-border/40 bg-card/20 p-4 transition-all hover:border-border/80 hover:bg-card/40"
+            className="flex items-center gap-4 border-t border-[var(--hairline)] py-4"
           >
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-blue-500/10 text-blue-500 transition-colors group-hover:bg-blue-500 group-hover:text-white">
-              <LinkedinIcon size={24} />
-            </div>
+            <span className="text-[var(--primary-action)]">
+              <LinkedinIcon size={20} />
+            </span>
             <div>
-              <p className="font-semibold">LinkedIn</p>
-              <p className="text-sm text-muted-foreground">linkedin.com/in/ankushab</p>
+              <p className="t-body-strong">LinkedIn</p>
+              <p className="t-caption text-[var(--body-muted)]">linkedin.com/in/ankushab</p>
             </div>
           </a>
 
@@ -59,18 +58,18 @@ export function Contact() {
             href="https://github.com/bhatankush"
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center gap-4 rounded-xl border border-border/40 bg-card/20 p-4 transition-all hover:border-border/80 hover:bg-card/40"
+            className="flex items-center gap-4 border-t border-b border-[var(--hairline)] py-4"
           >
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-blue-500/10 text-blue-500 transition-colors group-hover:bg-blue-500 group-hover:text-white">
-              <GithubIcon size={24} />
-            </div>
+            <span className="text-[var(--primary-action)]">
+              <GithubIcon size={20} />
+            </span>
             <div>
-              <p className="font-semibold">GitHub</p>
-              <p className="text-sm text-muted-foreground">github.com/bhatankush</p>
+              <p className="t-body-strong">GitHub</p>
+              <p className="t-caption text-[var(--body-muted)]">github.com/bhatankush</p>
             </div>
           </a>
         </div>
-      </div>
-    </section>
+      </TileInner>
+    </Tile>
   );
 }
