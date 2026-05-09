@@ -17,9 +17,12 @@ export function Education() {
             <span className="t-caption text-[var(--body-muted)]">Dec 2020 – May 2024</span>
           </div>
 
-          <div className="mb-6">
-            <p className="t-body-strong">Sahyadri College of Engineering & Management</p>
-            <p className="t-caption text-[var(--body-muted)]">Mangaluru, Karnataka</p>
+          <div className="mb-6 flex items-start gap-4">
+            <img src="/sahyadri.jpg" alt="Sahyadri College" className="size-16 shrink-0 rounded-lg object-contain" />
+            <div>
+              <p className="t-body-strong">Sahyadri College of Engineering & Management</p>
+              <p className="t-caption text-[var(--body-muted)]">Mangaluru, Karnataka</p>
+            </div>
           </div>
 
           <p className="t-body text-[var(--body-muted)]">

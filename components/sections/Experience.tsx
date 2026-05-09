@@ -5,6 +5,7 @@ const EXPERIENCE = [
   {
     role: "Cloud Associate",
     company: "Niveus Solutions (NTT Data)",
+    logo: "/niveus.png",
     period: "Nov 2025 – Present",
     location: "Mangaluru, Karnataka",
     highlights: [
@@ -17,6 +18,7 @@ const EXPERIENCE = [
   {
     role: "Cloud Explorer",
     company: "Niveus Solutions (NTT Data)",
+    logo: "/niveus.png",
     period: "May 2025 – Nov 2025",
     location: "Mangaluru, Karnataka",
     highlights: [
@@ -29,6 +31,7 @@ const EXPERIENCE = [
   {
     role: "Software Engineer Intern",
     company: "Niveus Solutions (NTT Data)",
+    logo: "/niveus.png",
     period: "Nov 2024 – May 2025",
     location: "Mangaluru, Karnataka",
     highlights: [
@@ -41,6 +44,7 @@ const EXPERIENCE = [
   {
     role: "RPA Intern",
     company: "EvoluteIQ",
+    logo: "/evoluteiq.jpg",
     period: "Feb 2024 – Apr 2024",
     location: "Remote",
     highlights: [
@@ -73,7 +77,10 @@ export function Experience() {
                 <span className="t-caption text-[var(--on-dark-muted)]">{exp.period}</span>
               </div>
               <div className="mb-5 flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
-                <span className="t-body text-[var(--on-dark)]">{exp.company}</span>
+                <div className="flex items-center gap-3">
+                  <img src={exp.logo} alt={exp.company} className="size-10 shrink-0 rounded-lg object-contain" />
+                  <span className="t-body text-[var(--on-dark)]">{exp.company}</span>
+                </div>
                 <span className="t-caption text-[var(--on-dark-muted)]">{exp.location}</span>
               </div>
               <ul className="mb-5 ml-5 list-disc space-y-2 t-caption text-[var(--on-dark-muted)]">

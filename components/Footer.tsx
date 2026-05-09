@@ -37,13 +37,6 @@ export function Footer() {
             </a>
           </div>
         </div>
-        <div>
-          <h3 className="t-caption-strong mb-2">Legal</h3>
-          <div className="t-dense-link">
-            <p>All rights reserved.</p>
-            <p>Portfolio content by Ankush Bhat.</p>
-          </div>
-        </div>
       </div>
 
       <div className="mx-auto mt-10 flex w-full max-w-[1440px] items-center justify-between px-5 sm:px-6">
