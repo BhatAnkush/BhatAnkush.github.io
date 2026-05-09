@@ -17,7 +17,7 @@ export default function HomePage() {
       <Experience />
       <Education />
       <Projects />
-      <Awards />
+      {/* <Awards /> */}
       <Certifications />
       <Writing />
       <GitHubActivity />
