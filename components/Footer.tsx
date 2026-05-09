@@ -27,7 +27,7 @@ export function Footer() {
             {[
               { label: "GitHub", href: "https://github.com/bhatankush" },
               { label: "LinkedIn", href: "https://www.linkedin.com/in/ankushab" },
-              { label: "Email", href: "mailto:your@email.com" },
+              { label: "Email", href: "mailto:ankushbhataab@gmail.com" },
             ].map(({ label, href }) => (
               <li key={label}>
                 <a

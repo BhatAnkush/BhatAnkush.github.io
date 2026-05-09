@@ -374,3 +374,139 @@
     padding-bottom: var(--section-padding-y-tight);
   }
 }
+
+/* Markdown content styling */
+.markdown-content {
+  color: var(--ink);
+  line-height: 1.7;
+}
+.dark .markdown-content {
+  color: var(--on-dark);
+}
+
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3,
+.markdown-content h4,
+.markdown-content h5,
+.markdown-content h6 {
+  font-weight: 600;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  line-height: 1.2;
+}
+
+.markdown-content h1 {
+  font-size: 2.25rem;
+}
+
+.markdown-content h2 {
+  font-size: 1.875rem;
+}
+
+.markdown-content h3 {
+  font-size: 1.5rem;
+}
+
+.markdown-content h4 {
+  font-size: 1.25rem;
+}
+
+.markdown-content p {
+  margin-bottom: 1em;
+}
+
+.markdown-content a {
+  color: var(--primary-action);
+  text-decoration: none;
+}
+
+.markdown-content a:hover {
+  text-decoration: underline;
+}
+
+.markdown-content code {
+  background-color: #f1f5f9;
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  color: #0f172a;
+}
+.dark .markdown-content code {
+  background-color: var(--surface-tile-3);
+  color: var(--on-dark);
+}
+
+.markdown-content pre {
+  background-color: #1e293b;
+  padding: 1em;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin-bottom: 1em;
+  color: #f1f5f9;
+}
+.dark .markdown-content pre {
+  background-color: var(--surface-tile-3);
+  color: var(--on-dark);
+}
+
+.markdown-content pre code {
+  background-color: transparent;
+  padding: 0;
+  color: inherit;
+}
+
+.markdown-content blockquote {
+  border-left: 4px solid var(--primary-action);
+  padding-left: 1em;
+  margin: 1em 0;
+  color: var(--body-muted);
+}
+.dark .markdown-content blockquote {
+  color: var(--on-dark-muted);
+}
+
+.markdown-content ul,
+.markdown-content ol {
+  margin-bottom: 1em;
+  padding-left: 2em;
+}
+
+.markdown-content li {
+  margin-bottom: 0.5em;
+}
+
+.markdown-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1em;
+}
+
+.markdown-content th,
+.markdown-content td {
+  border: 1px solid var(--hairline);
+  padding: 0.75em;
+  text-align: left;
+}
+
+.markdown-content th {
+  background-color: var(--surface-pearl);
+  font-weight: 600;
+}
+.dark .markdown-content th {
+  background-color: var(--surface-tile-3);
+}
+
+.markdown-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 1em 0;
+}
+
+.markdown-content hr {
+  border: none;
+  border-top: 1px solid var(--hairline);
+  margin: 2em 0;
+}
