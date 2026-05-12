@@ -9,7 +9,7 @@ const EXPERIENCE = [
     period: "Nov 2025 – Present",
     location: "Mangaluru, Karnataka",
     highlights: [
-      "Developing & deploying production-grade microservices on GCP using Node.js, Express.js & FastAPI.",
+      "Developing production-grade microservices on GCP using Node.js, Express.js.",
       "Architecting real-time features with WebSockets.",
       "Leading React.js + Tailwind CSS frontend development.",
     ],
