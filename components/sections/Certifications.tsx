@@ -6,31 +6,25 @@ const CERTIFICATIONS = [
     title: "Associate Cloud Engineer",
     issuer: "Google Cloud",
     date: "Jul 2025",
-    verifyLink: "https://google.com/certification", // Placeholder
+    verifyLink: "https://www.credly.com/badges/48ac672d-cb2b-44cc-b67a-d72a9c697b3c", // Placeholder
   },
   {
     title: "Python Basic",
     issuer: "HackerRank",
     date: "Sep 2023",
-    verifyLink: "https://hackerrank.com", // Placeholder
+    verifyLink: "https://www.hackerrank.com/certificates/iframe/3dea87d3e2d4", // Placeholder
   },
   {
     title: "Java Basic",
     issuer: "HackerRank",
     date: "Apr 2023",
-    verifyLink: "https://hackerrank.com", // Placeholder
+    verifyLink: "https://www.hackerrank.com/certificates/acee6bec8ef2", // Placeholder
   },
   {
     title: "Problem Solving Basic",
     issuer: "HackerRank",
     date: "Dec 2022",
-    verifyLink: "https://hackerrank.com", // Placeholder
-  },
-  {
-    title: "C++ Programming for Beginners",
-    issuer: "Udemy",
-    date: "Apr 2023",
-    verifyLink: "https://udemy.com", // Placeholder
+    verifyLink: "https://www.hackerrank.com/certificates/506f60ac0051", // Placeholder
   },
 ];
 
