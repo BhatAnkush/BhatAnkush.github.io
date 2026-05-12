@@ -43,14 +43,22 @@ export function Navbar() {
   }, []);
 
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
     const targetId = href.replace(/.*#/, "");
     const elem = document.getElementById(targetId);
+    
+    // If the section exists on current page, scroll to it
     if (elem) {
+      e.preventDefault();
       const top = elem.getBoundingClientRect().top + window.scrollY - NAV_OFFSET;
       window.scrollTo({ top, behavior: "smooth" });
       window.history.pushState(null, "", href);
     }
+    // If section doesn't exist, navigate to homepage with hash
+    else if (window.location.pathname !== "/") {
+      e.preventDefault();
+      window.location.href = "/" + href;
+    }
+    
     setMenuOpen(false);
   };
 

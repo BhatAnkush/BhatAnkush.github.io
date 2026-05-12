@@ -86,7 +86,7 @@ export default async function BlogPostPage({ params }: Props) {
             <article className="lg:col-span-8">
               {/* Author & Date */}
               <div className="mb-10 flex items-center gap-3 border-b border-[var(--hairline)] pb-8">
-                <img src="/ankush.png" alt="Ankush" className="size-10 shrink-0 rounded-full" />
+                <img src="/Ankush.png" alt="Ankush" className="size-10 shrink-0 rounded-full" />
                 <div>
                   <p className="t-body-strong text-[var(--ink)] dark:text-[var(--on-dark)]">{post.author}</p>
                   <p className="t-caption text-[var(--body-muted)] dark:text-[var(--on-dark-muted)]">{formattedDate}</p>
@@ -115,7 +115,7 @@ export default async function BlogPostPage({ params }: Props) {
               <div className="rounded-xl bg-[var(--canvas-parchment)] dark:bg-[var(--surface-tile-2)] p-6">
                 <h3 className="t-display-sm mb-4 text-[var(--ink)] dark:text-[var(--on-dark)]">About the Author</h3>
                 <div className="flex items-center gap-3 mb-4">
-                  <img src="/ankush.png" alt="Ankush" className="size-12 shrink-0 rounded-full" />
+                  <img src="/Ankush.png" alt="Ankush" className="size-12 shrink-0 rounded-full" />
                   <div>
                     <p className="t-body-strong text-[var(--ink)] dark:text-[var(--on-dark)]">{post.author}</p>
                   </div>
