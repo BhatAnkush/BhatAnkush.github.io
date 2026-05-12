@@ -12,8 +12,7 @@ export function Writing() {
         <div className="mb-10">
           <HyperText>Writing</HyperText>
           <p className="mt-2 t-body text-[var(--body-muted)]">
-            Notes and articles on cloud engineering, backend development, and my
-            career journey.
+            Notes and articles on tech and career.
           </p>
         </div>
 
