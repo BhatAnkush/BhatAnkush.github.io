@@ -24,7 +24,7 @@ const PROJECTS = [
   },
   {
   title: "Bronze Solar – Corporate Website",
-  Image:"/project/bronzesolar.png",
+  image:"/project/bronzesolar.png",
   description:
     "End-to-end development of a corporate website for Bronze Solar Panels Industries LLC, a leading solar panel manufacturer in UAE with 600MW annual capacity. Built and deployed a fully responsive, SEO-optimized site showcasing their N-type TOPCon, HJT & IBC photovoltaic modules.",
   tech: ["React.js", "JavaScript", "CSS"],
