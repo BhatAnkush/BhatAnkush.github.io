@@ -3,6 +3,7 @@ import { ExternalLink } from "lucide-react";
 import { GithubIcon } from "../Icons/GithubIcon";
 import { Tile, TileInner } from "@/components/Tile";
 import { HyperText } from "../ui/hyper-text";
+import { Lens } from "../ui/lens";
 
 const PROJECTS = [
   {
@@ -51,12 +52,25 @@ export function Projects() {
               key={i}
               className="rounded-[var(--radius-lg-token)] border border-[var(--hairline)] bg-[var(--canvas)] p-6"
             >
-              <div className="mb-5 flex aspect-square max-h-[220px] w-full items-center justify-center rounded-[var(--radius-lg-token)] bg-[var(--canvas-parchment)]">
-                <img src={project.image} alt={project.title} className="h-full w-full object-cover" />
+              <div className="mb-5 w-full overflow-hidden rounded-[var(--radius-lg-token)] bg-[var(--canvas-parchment)]">
+                <Lens
+                  zoomFactor={2}
+                  lensSize={150}
+                  isStatic={false}
+                  ariaLabel="Zoom Area"
+                >
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="h-[220px] w-full object-cover"
+                  />
+                </Lens>
               </div>
 
               <h3 className="mb-2 t-tagline">{project.title}</h3>
-              <p className="mb-6 t-caption text-[var(--body-muted)]">{project.description}</p>
+              <p className="mb-6 t-caption text-[var(--body-muted)]">
+                {project.description}
+              </p>
 
               <div className="mb-6 flex flex-wrap gap-2">
                 {project.tech.map((tech) => (
@@ -76,12 +90,17 @@ export function Projects() {
                   </a>
                 )}
                 {project.live && (
-                  <a href={project.live} className="text-link inline-flex items-center gap-1.5">
+                  <a
+                    href={project.live}
+                    className="text-link inline-flex items-center gap-1.5"
+                  >
                     <ExternalLink size={16} /> Live
                   </a>
                 )}
                 {!project.github && !project.live && (
-                  <span className="text-[var(--ink-muted-48)]">Private / Enterprise</span>
+                  <span className="text-[var(--ink-muted-48)]">
+                    Private / Enterprise
+                  </span>
                 )}
               </div>
             </article>
