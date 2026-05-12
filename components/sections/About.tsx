@@ -1,6 +1,7 @@
 import { TagPill } from "@/components/TagPill";
 import Image from "next/image";
 import { Tile, TileInner } from "@/components/Tile";
+import { HyperText } from "../ui/hyper-text";
 
 const SKILLS = [
   "Cloud Engineering",
@@ -24,7 +25,7 @@ export function About() {
   return (
     <Tile id="about" surface="parchment" className="section-padding">
       <TileInner>
-        <h2 className="mb-6 t-display-lg">About Me</h2>
+      <HyperText>About Me</HyperText>
 
         <div className="mb-10 space-y-4 text-[var(--body-muted)] t-body">
           <p>

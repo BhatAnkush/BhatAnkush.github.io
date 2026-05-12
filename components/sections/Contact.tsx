@@ -3,13 +3,14 @@ import { LinkedinIcon } from "../Icons/LinkedinIcon";
 import { GithubIcon } from "../Icons/GithubIcon";
 import { Button } from "@/components/ui/button";
 import { Tile, TileInner } from "@/components/Tile";
+import { HyperText } from "../ui/hyper-text";
 
 export function Contact() {
   return (
     <Tile id="contact" surface="parchment" className="section-padding">
       <TileInner>
         <div className="mb-8">
-          <h2 className="t-display-lg">Get in touch.</h2>
+          <HyperText>Get in touch.</HyperText>
           <p className="mt-2 t-lead text-[var(--body-muted)]">
             Feel free to reach out if you&apos;re looking for a developer, have a
             question, or just want to connect.

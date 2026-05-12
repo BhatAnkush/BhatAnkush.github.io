@@ -1,5 +1,6 @@
 import { TagPill } from "@/components/TagPill";
 import { Tile, TileInner } from "@/components/Tile";
+import { HyperText } from "../ui/hyper-text";
 
 const EXPERIENCE = [
   {
@@ -60,7 +61,7 @@ export function Experience() {
     <Tile id="experience" surface="dark" className="section-padding">
       <TileInner>
         <div className="mb-10">
-          <h2 className="t-display-lg">Work Experience</h2>
+          <HyperText>Work Experience</HyperText>
           <p className="mt-2 t-body text-[var(--on-dark-muted)]">
             My professional journey and the companies I&apos;ve worked with.
           </p>

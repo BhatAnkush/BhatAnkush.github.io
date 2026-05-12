@@ -2,6 +2,7 @@ import { TagPill } from "@/components/TagPill";
 import { ExternalLink } from "lucide-react";
 import { GithubIcon } from "../Icons/GithubIcon";
 import { Tile, TileInner } from "@/components/Tile";
+import { HyperText } from "../ui/hyper-text";
 
 const PROJECTS = [
   {
@@ -38,7 +39,7 @@ export function Projects() {
     <Tile id="projects" surface="light" className="section-padding">
       <TileInner wide>
         <div className="mb-10">
-          <h2 className="t-display-lg">Featured Projects</h2>
+          <HyperText>Featured Projects</HyperText>
           <p className="mt-2 t-body text-[var(--body-muted)]">
             Here are some of my recent projects. Check out my GitHub for more.
           </p>

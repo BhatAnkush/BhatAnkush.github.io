@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Tile, TileInner } from "@/components/Tile";
 import { Star, GitFork, Code } from "lucide-react";
 import { GithubIcon } from "../Icons/GithubIcon";
+import { HyperText } from "../ui/hyper-text";
 
 interface Repository {
   id: number;
@@ -78,7 +79,7 @@ export function GitHubActivity() {
       <Tile id="github-activity" surface="dark3" className="section-padding">
         <TileInner wide>
           <div className="mb-10">
-            <h2 className="t-display-lg text-[var(--on-dark)]">GitHub Activity</h2>
+           <HyperText>GitHub Activity</HyperText>
             <p className="mt-2 t-body text-[var(--on-dark-muted)]">
               Check out my latest contributions and repositories on GitHub.
             </p>

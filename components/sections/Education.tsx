@@ -1,11 +1,12 @@
 import { Tile, TileInner } from "@/components/Tile";
+import { HyperText } from "../ui/hyper-text";
 
 export function Education() {
   return (
     <Tile id="education" surface="parchment" className="section-padding">
       <TileInner>
         <div className="mb-10">
-          <h2 className="t-display-lg">Education</h2>
+          <HyperText>Education</HyperText>
           <p className="mt-2 t-body text-[var(--body-muted)]">
             My academic background and qualifications.
           </p>

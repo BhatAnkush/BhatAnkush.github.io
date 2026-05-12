@@ -1,4 +1,5 @@
 import { Tile, TileInner } from "@/components/Tile";
+import { HyperText } from "../ui/hyper-text";
 
 const AWARDS = [
   {
@@ -26,7 +27,7 @@ export function Awards() {
     <Tile id="awards" surface="dark2" className="section-padding">
       <TileInner>
         <div className="mb-10">
-          <h2 className="t-display-lg text-[var(--on-dark)]">Awards & Achievements</h2>
+          <HyperText>Awards & Achievements</HyperText>
           <p className="mt-2 t-body text-[var(--on-dark-muted)]">
             Recognition for my work and contributions.
           </p>

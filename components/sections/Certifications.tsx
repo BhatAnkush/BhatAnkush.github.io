@@ -1,5 +1,6 @@
 import { ExternalLink } from "lucide-react";
 import { Tile, TileInner } from "@/components/Tile";
+import { HyperText } from "../ui/hyper-text";
 
 const CERTIFICATIONS = [
   {
@@ -33,7 +34,7 @@ export function Certifications() {
     <Tile id="certifications" surface="parchment" className="section-padding">
       <TileInner wide>
         <div className="mb-10">
-          <h2 className="t-display-lg">Certifications</h2>
+          <HyperText>Certifications</HyperText>
           <p className="mt-2 t-body text-[var(--body-muted)]">
             My cloud and programming certifications validating expertise.
           </p>

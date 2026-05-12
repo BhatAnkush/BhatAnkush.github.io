@@ -1,6 +1,7 @@
 import { TagPill } from "@/components/TagPill";
 import { Tile, TileInner } from "@/components/Tile";
 import { getSortedPostsData } from "@/lib/posts";
+import { HyperText } from "../ui/hyper-text";
 
 export function Writing() {
   const posts = getSortedPostsData().slice(0, 3);
@@ -9,7 +10,7 @@ export function Writing() {
     <Tile id="writing" surface="light" className="section-padding">
       <TileInner>
         <div className="mb-10">
-          <h2 className="t-display-lg">Writing</h2>
+          <HyperText>Writing</HyperText>
           <p className="mt-2 t-body text-[var(--body-muted)]">
             Notes and articles on cloud engineering, backend development, and my
             career journey.
