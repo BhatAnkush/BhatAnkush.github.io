@@ -20,6 +20,14 @@ const PROJECTS = [
     github: "https://github.com/BhatAnkush/Mentor-Mentee",
     live: "",
   },
+  {
+  title: "Bronze Solar – Corporate Website",
+  description:
+    "End-to-end development of a corporate website for Bronze Solar Panels Industries LLC, a leading solar panel manufacturer in UAE with 600MW annual capacity. Built and deployed a fully responsive, SEO-optimized site showcasing their N-type TOPCon, HJT & IBC photovoltaic modules.",
+  tech: ["React.js", "JavaScript", "CSS"],
+  github: "",
+  live: "https://bronzesolar.com/",
+},
 ];
 
 export function Projects() {
