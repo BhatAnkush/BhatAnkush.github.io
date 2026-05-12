@@ -6,6 +6,7 @@ import { Tile, TileInner } from "@/components/Tile";
 const PROJECTS = [
   {
     title: "Quizzy – Interactive Quiz App",
+    image: "/project/quizzy.png",
     description:
       "A responsive quiz application built with React and Vite, featuring dynamic question rendering, score tracking, and a clean component-based architecture. Deployed live on Render.",
     tech: ["React.js", "Vite", "JavaScript", "CSS"],
@@ -14,6 +15,7 @@ const PROJECTS = [
   },
   {
     title: "Mentor-Mentee Management System",
+    image: "/project/mentor-mentee.png",
     description:
       "A full-stack Database Management System where mentors can perform CRUD operations on student records and mentees can view their updated marks and academic progress in real-time.",
     tech: ["PHP", "MySQL", "JavaScript", "CSS", "SCSS"],
@@ -22,6 +24,7 @@ const PROJECTS = [
   },
   {
   title: "Bronze Solar – Corporate Website",
+  Image:"/project/bronzesolar.png",
   description:
     "End-to-end development of a corporate website for Bronze Solar Panels Industries LLC, a leading solar panel manufacturer in UAE with 600MW annual capacity. Built and deployed a fully responsive, SEO-optimized site showcasing their N-type TOPCon, HJT & IBC photovoltaic modules.",
   tech: ["React.js", "JavaScript", "CSS"],
@@ -48,9 +51,7 @@ export function Projects() {
               className="rounded-[var(--radius-lg-token)] border border-[var(--hairline)] bg-[var(--canvas)] p-6"
             >
               <div className="mb-5 flex aspect-square max-h-[220px] w-full items-center justify-center rounded-[var(--radius-lg-token)] bg-[var(--canvas-parchment)]">
-                <span className="t-display-lg text-[var(--ink)]">
-                  {project.title.charAt(0)}
-                </span>
+                <img src={project.image} alt={project.title} className="h-full w-full object-cover" />
               </div>
 
               <h3 className="mb-2 t-tagline">{project.title}</h3>
