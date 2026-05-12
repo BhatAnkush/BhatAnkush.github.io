@@ -5,35 +5,19 @@ import { Tile, TileInner } from "@/components/Tile";
 
 const PROJECTS = [
   {
-    title: "Portfolio Chatbot (AI Assistant)",
+    title: "Quizzy – Interactive Quiz App",
     description:
-      "An AI-powered chatbot embedded in this portfolio that answers questions about my skills, experience, and projects. Streams responses in real-time using Groq's LLaMA 3.3 70B model.",
-    tech: ["Next.js", "React", "Groq SDK", "LLaMA 3.3", "AI"],
-    github: "https://github.com/bhatankush/portfolio-chat",
-    live: "/chat",
+      "A responsive quiz application built with React and Vite, featuring dynamic question rendering, score tracking, and a clean component-based architecture. Deployed live on Render.",
+    tech: ["React.js", "Vite", "JavaScript", "CSS"],
+    github: "https://github.com/BhatAnkush/Quizzy",
+    live: "https://quizzy-jxta.onrender.com/",
   },
   {
-    title: "PERN Stack Client Deployments",
+    title: "Mentor-Mentee Management System",
     description:
-      "Full-stack web applications built for real business clients at Niveus Solutions using the PERN stack (PostgreSQL, Express.js, React.js, Node.js), deployed on Google Cloud Platform.",
-    tech: ["React.js", "Node.js", "Express.js", "PostgreSQL", "GCP"],
-    github: "", // private repo
-    live: "",
-  },
-  {
-    title: "Microservices & Real-time Systems",
-    description:
-      "Production-grade microservices architected and deployed on GCP at Niveus Solutions, featuring real-time communication powered by WebSockets and REST API integrations.",
-    tech: ["Node.js", "Express.js", "FastAPI", "WebSockets", "Microservices"],
-    github: "",
-    live: "",
-  },
-  {
-    title: "RPA Automation Bots",
-    description:
-      "Robotic Process Automation bots built during internship at EvoluteIQ for data extraction and business process orchestration, using UiPath and Automation Anywhere platforms.",
-    tech: ["UiPath", "Automation Anywhere", "RPA"],
-    github: "",
+      "A full-stack Database Management System where mentors can perform CRUD operations on student records and mentees can view their updated marks and academic progress in real-time.",
+    tech: ["PHP", "MySQL", "JavaScript", "CSS", "SCSS"],
+    github: "https://github.com/BhatAnkush/Mentor-Mentee",
     live: "",
   },
 ];
