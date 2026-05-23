@@ -6,6 +6,15 @@ import { HyperText } from "../ui/hyper-text";
 import { Lens } from "../ui/lens";
 
 const PROJECTS = [
+ {
+    title: "TruthLayer – AI-Powered News Analyser",
+    image: "/project/truthlayer.png",
+    description:
+      "A full-stack AI application that dissects any news article URL into an interactive evidence board — classifying claims as facts, opinions, fallacies, or missing context — with a 5-dimension manipulation score and cross-source contradiction detection.",
+    tech: ["Next.js 14", "TypeScript", "Groq API", "React Flow", "Clerk", "Neon PostgreSQL", "Prisma", "Tailwind CSS"],
+    github: "https://github.com/BhatAnkush/truthlayer",
+    live: "https://truthlayer-eight-dusky.vercel.app",
+  },
   {
     title: "Quizzy – Interactive Quiz App",
     image: "/project/quizzy.png",
@@ -19,20 +28,20 @@ const PROJECTS = [
     title: "Mentor-Mentee Management System",
     image: "/project/mentor-mentee.png",
     description:
-      "A full-stack Database Management System where mentors can perform CRUD operations on student records and mentees can view their updated marks and academic progress in real-time.",
+      "A full-stack DBMS where mentors can perform CRUD operations on student records and mentees can view their updated marks and academic progress in real-time.",
     tech: ["PHP", "MySQL", "JavaScript", "CSS", "SCSS"],
     github: "https://github.com/BhatAnkush/Mentor-Mentee",
     live: "",
   },
   {
-  title: "Bronze Solar – Corporate Website",
-  image:"/project/bronzesolar.png",
-  description:
-    "End-to-end development of a corporate website for Bronze Solar Panels Industries LLC, a leading solar panel manufacturer in UAE with 600MW annual capacity. Built and deployed a fully responsive, SEO-optimized site showcasing their N-type TOPCon, HJT & IBC photovoltaic modules.",
-  tech: ["React.js", "JavaScript", "CSS"],
-  github: "",
-  live: "https://bronzesolar.com/",
-},
+    title: "Bronze Solar – Corporate Website",
+    image: "/project/bronzesolar.png",
+    description:
+      "End-to-end development of a corporate website for Bronze Solar Panels Industries LLC, a UAE-based solar manufacturer with 600MW annual capacity. Fully responsive and SEO-optimized.",
+    tech: ["React.js", "JavaScript", "CSS"],
+    github: "",
+    live: "https://bronzesolar.com/",
+  },
 ];
 
 export function Projects() {
