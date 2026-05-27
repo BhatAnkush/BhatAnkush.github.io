@@ -89,6 +89,15 @@
   }
 }
 
+.carousel-track {
+  animation: carousel-scroll 20s linear infinite;
+}
+
+@keyframes carousel-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
 :root {
   /* Apple design tokens */
   --canvas: #ffffff;

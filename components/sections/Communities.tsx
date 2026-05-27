@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
+import { useRef } from "react";
 import { Tile, TileInner } from "@/components/Tile";
 import { HyperText } from "../ui/hyper-text";
-import { Marquee } from "../ui/marquee";
 
 const COMMUNITIES = [
   {
@@ -26,45 +26,44 @@ const COMMUNITIES = [
     logo: "/communities/sosc.svg",
     href: "https://sosc.org.in",
   },
+  {
+    name: "IEEE Student Branch SCEM",
+    logo: "/communities/ieee.png",
+    href: "https://students.ieee.org/",
+  },
 ];
 
 function CommunityCard({
   name,
   logo,
   href,
+  onPause,
+  onResume,
 }: {
   name: string;
   logo: string;
   href: string;
+  onPause: () => void;
+  onResume: () => void;
 }) {
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="group flex flex-col items-center gap-3 px-8 py-6 w-48 shrink-0 cursor-pointer"
+      onMouseEnter={onPause}
+      onMouseLeave={onResume}
+      className="group flex flex-col items-center gap-2 px-10 shrink-0 cursor-pointer"
     >
-      {/* Logo — grayscale by default, full color on hover */}
-      <div className="relative h-20 w-20 transition-all duration-400">
-        {/* Grayscale layer (fades out on hover) */}
+      <div className="relative h-[96px] w-[96px]">
         <Image
           src={logo}
           alt={name}
           fill
-          className="object-contain grayscale opacity-40 transition-all duration-400 group-hover:opacity-0"
-        />
-        {/* Color layer (fades in on hover) */}
-        <Image
-          src={logo}
-          alt=""
-          fill
-          aria-hidden
-          className="object-contain opacity-0 transition-all duration-400 group-hover:opacity-100 group-hover:scale-110"
+          className="object-contain grayscale opacity-50 transition-all duration-300 group-hover:grayscale-0 group-hover:opacity-100"
         />
       </div>
-
-      {/* Name — muted, sharpens on hover */}
-      <span className="text-center text-xs font-medium text-[var(--ink-muted-48)] transition-colors duration-400 group-hover:text-[var(--ink)] leading-snug">
+      <span className="whitespace-nowrap text-xs text-[var(--ink-muted-48)] transition-colors duration-300 group-hover:text-[var(--ink)]">
         {name}
       </span>
     </a>
@@ -72,26 +71,40 @@ function CommunityCard({
 }
 
 export function Communities() {
+  const trackRef = useRef<HTMLDivElement>(null);
+
+  const pause = () => {
+    if (trackRef.current) trackRef.current.style.animationPlayState = "paused";
+  };
+  const resume = () => {
+    if (trackRef.current) trackRef.current.style.animationPlayState = "running";
+  };
+
   return (
     <Tile id="communities" surface="parchment" className="section-padding">
       <TileInner>
         <HyperText>Communities</HyperText>
 
         <p className="mb-10 t-body text-body-muted max-w-xl">
-          Communities and clubs I&apos;ve been part of — building, learning, and
-          contributing alongside fellow developers and open-source enthusiasts.
+          Built, learned, and collaborated with open-source communities.
         </p>
 
-        <div className="relative">
-          {/* Fade masks */}
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-28 z-10 bg-gradient-to-r from-[var(--canvas-parchment)] to-transparent" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-28 z-10 bg-gradient-to-l from-[var(--canvas-parchment)] to-transparent" />
+        <div className="relative overflow-hidden">
+          {/* Edge fades */}
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-24 z-10 bg-linear-to-r from-[var(--canvas-parchment)] to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-24 z-10 bg-linear-to-l from-[var(--canvas-parchment)] to-transparent" />
 
-          <Marquee pauseOnHover className="py-6 [--duration:20s] [--gap:0rem]">
-            {COMMUNITIES.map((community) => (
-              <CommunityCard key={community.name} {...community} />
+          <div ref={trackRef} className="carousel-track flex w-max py-4">
+            {/* Render twice for seamless loop */}
+            {[...COMMUNITIES, ...COMMUNITIES].map((community, i) => (
+              <CommunityCard
+                key={`${community.name}-${i}`}
+                {...community}
+                onPause={pause}
+                onResume={resume}
+              />
             ))}
-          </Marquee>
+          </div>
         </div>
       </TileInner>
     </Tile>
