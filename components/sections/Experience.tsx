@@ -4,7 +4,7 @@ import { HyperText } from "../ui/hyper-text";
 
 const EXPERIENCE = [
   {
-    role: "Software Engineer — Full Stack & Cloud",
+    role: "Cloud Associate",
     company: "Niveus Solutions (NTT Data)",
     logo: "/niveus.png",
     period: "Nov 2025 – Present",
@@ -18,7 +18,7 @@ const EXPERIENCE = [
     tech: ["React.js", "Node.js", "Express.js", "PostgreSQL", "GCP", "WebSockets", "Ant Design", "PrimeReact"],
   },
   {
-    role: "Associate Software Engineer",
+    role: "Cloud Explorer",
     company: "Niveus Solutions (NTT Data)",
     logo: "/niveus.png",
     period: "May 2025 – Nov 2025",
