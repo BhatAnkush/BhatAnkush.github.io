@@ -1,19 +1,45 @@
-import { TagPill } from "@/components/TagPill";
 import Image from "next/image";
 import { Tile, TileInner } from "@/components/Tile";
 import { HyperText } from "../ui/hyper-text";
 import { GlareHover } from "../ui/glare-hover";
+import { IconTagPill } from "@/components/IconTagPill";
+import { Layers, Cloud, Bot, Database } from "lucide-react";
 
-const SKILLS = ["Cloud Engineering", "Web Development", "Database"];
+const SKILLS = [
+  {
+    label: "Full Stack Development",
+    icon: <Layers size={15} aria-hidden="true" className="shrink-0" />,
+  },
+  {
+    label: "Cloud Engineering",
+    icon: <Cloud size={15} aria-hidden="true" className="shrink-0" />,
+  },
+  {
+    label: "AI Integration",
+    icon: <Bot size={15} aria-hidden="true" className="shrink-0" />,
+  },
+  {
+    label: "Database Design",
+    icon: <Database size={15} aria-hidden="true" className="shrink-0" />,
+  },
+];
 
 const TECH_STACK = [
   {
-    name: "GCP",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg",
-  },
-  {
     name: "React",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+  },
+  {
+    name: "Next.js",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+  },
+  {
+    name: "TypeScript",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+  },
+  {
+    name: "JavaScript",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
   },
   {
     name: "Node.js",
@@ -28,55 +54,55 @@ const TECH_STACK = [
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
   },
   {
-    name: "Python",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
-  },
-  {
-    name: "Next.js",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+    name: "GCP",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg",
   },
   {
     name: "Tailwind",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
   },
   {
-    name: "JavaScript",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
-  },
-  {
     name: "Git",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
   },
 ];
+
 export function About() {
   return (
     <Tile id="about" surface="parchment" className="section-padding">
       <TileInner>
         <HyperText>About Me</HyperText>
 
-        <div className="mb-10 space-y-4 text-[var(--body-muted)] t-body">
+        <div className="mb-10 space-y-4 text-body-muted t-body">
           <p>
-            I&apos;m a Cloud Associate at Niveus Solutions (NTT Data),
-            specializing in building scalable cloud-native applications and
-            microservices on Google Cloud Platform. I hold a B.E. in Information
-            Science & Engineering from Sahyadri College of Engineering &
-            Management and have earned the Google Cloud Associate Cloud Engineer
-            certification alongside 9 skill badges.
+            I&apos;m a Full Stack Engineer at Niveus Solutions (NTT Data),
+            building production web applications and cloud-native systems on
+            Google Cloud Platform. I specialize in React / Next.js frontends,
+            Node.js backends, and LLM-powered products — from real-time
+            WebSocket features to AI pipelines integrating large language
+            models. I hold a B.E. in Information Science &amp; Engineering and
+            the Google Cloud Associate Cloud Engineer certification.
           </p>
           <p>
-            Beyond my daily engineering work, I&apos;m passionate about
-            open-source communities and continuous learning. I previously led a
-            200+ member open-source student community and drove coding culture
-            initiatives as Vice President of the Newton School chapter,
-            fostering collaborative software development.
+            Outside of work, I build side projects that explore the intersection
+            of AI and the web — most recently TruthLayer, an AI-powered news
+            analysis tool. I&apos;m also passionate about open-source
+            communities, having led a 200+ member student community and served
+            as Vice President of the Newton School coding chapter.
           </p>
         </div>
 
+        {/* Skill pills with icons */}
         <div className="mb-12">
           <h3 className="mb-4 t-tagline">My Skills</h3>
           <div className="flex flex-wrap gap-2">
             {SKILLS.map((skill) => (
-              <TagPill key={skill} label={skill} surface="light" />
+              <IconTagPill
+                key={skill.label}
+                label={skill.label}
+                icon={skill.icon}
+                surface="light"
+              />
             ))}
           </div>
         </div>

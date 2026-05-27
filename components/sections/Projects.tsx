@@ -6,32 +6,23 @@ import { HyperText } from "../ui/hyper-text";
 import { Lens } from "../ui/lens";
 
 const PROJECTS = [
- {
+  {
     title: "TruthLayer – AI-Powered News Analyser",
     image: "/project/truthlayer.png",
     description:
-      "A full-stack AI application that dissects any news article URL into an interactive evidence board — classifying claims as facts, opinions, fallacies, or missing context — with a 5-dimension manipulation score and cross-source contradiction detection.",
+      "A full-stack AI application that analyses any news article URL into an interactive React Flow evidence board — classifying claims as facts, opinions, fallacies, or missing context — with SSE streaming, 15,000+ word article support, and cross-source contradiction detection powered by Llama 3.3 70B.",
     tech: ["Next.js 14", "TypeScript", "Groq API", "React Flow", "Clerk", "Neon PostgreSQL", "Prisma", "Tailwind CSS"],
     github: "https://github.com/BhatAnkush/truthlayer",
     live: "https://truthlayer-eight-dusky.vercel.app",
   },
   {
-    title: "Quizzy – Interactive Quiz App",
+    title: "Quizzy – Dynamic Quiz Engine",
     image: "/project/quizzy.png",
     description:
-      "A responsive quiz application built with React and Vite, featuring dynamic question rendering, score tracking, and a clean component-based architecture. Deployed live on Render.",
-    tech: ["React.js", "Vite", "JavaScript", "CSS"],
+      "A full-featured quiz application with a built-in GCP certification module and a custom quiz engine that parses and validates user-uploaded JSON files for schema integrity. Features auto-save, cross-session progress tracking, and a synchronized 60-minute countdown timer.",
+    tech: ["React 19", "Vite", "JavaScript", "Context API", "Local Storage", "Tailwind CSS"],
     github: "https://github.com/BhatAnkush/Quizzy",
     live: "https://quizzy-jxta.onrender.com/",
-  },
-  {
-    title: "Mentor-Mentee Management System",
-    image: "/project/mentor-mentee.png",
-    description:
-      "A full-stack DBMS where mentors can perform CRUD operations on student records and mentees can view their updated marks and academic progress in real-time.",
-    tech: ["PHP", "MySQL", "JavaScript", "CSS", "SCSS"],
-    github: "https://github.com/BhatAnkush/Mentor-Mentee",
-    live: "",
   },
   {
     title: "Bronze Solar – Corporate Website",
@@ -50,7 +41,7 @@ export function Projects() {
       <TileInner wide>
         <div className="mb-10">
           <HyperText>Featured Projects</HyperText>
-          <p className="mt-2 t-body text-[var(--body-muted)]">
+          <p className="mt-2 t-body text-body-muted">
             Here are some of my recent projects. Check out my GitHub for more.
           </p>
         </div>
@@ -59,7 +50,7 @@ export function Projects() {
           {PROJECTS.map((project, i) => (
             <article
               key={i}
-              className="rounded-[var(--radius-lg-token)] border border-[var(--hairline)] bg-[var(--canvas)] p-6"
+              className="roundedradius-lg-token border border-[var(--hairline)] bg-[var(--canvas)] p-6"
             >
               <div className="mb-5 w-full overflow-hidden rounded-[var(--radius-lg-token)] bg-[var(--canvas-parchment)]">
                 <Lens
@@ -101,6 +92,8 @@ export function Projects() {
                 {project.live && (
                   <a
                     href={project.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-link inline-flex items-center gap-1.5"
                   >
                     <ExternalLink size={16} /> Live

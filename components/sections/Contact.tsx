@@ -12,8 +12,8 @@ export function Contact() {
         <div className="mb-8">
           <HyperText>Get in touch.</HyperText>
           <p className="mt-2 t-lead text-[var(--body-muted)]">
-            Feel free to reach out if you&apos;re looking for a developer, have a
-            question, or just want to connect.
+            Feel free to reach out if you&apos;re looking for a developer, have
+            a question, or just want to connect.
           </p>
         </div>
 
@@ -22,8 +22,12 @@ export function Contact() {
             <a href="mailto:ankushbhataab@gmail.com">Email me</a>
           </Button>
           <Button variant="secondaryPill" size="navPill" asChild>
-            <a href="/resume/ankush-bhat.pdf" target="_blank" rel="noopener noreferrer">
-              Download resume
+            <a
+              href="/Cover Letter/ankush-bhat.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Download Cover Letter
             </a>
           </Button>
         </div>
@@ -36,7 +40,9 @@ export function Contact() {
             <Mail size={20} className="text-[var(--primary-action)]" />
             <div>
               <p className="t-body-strong">Email</p>
-              <p className="t-caption text-[var(--body-muted)]">ankushbhataab@gmail.com</p>
+              <p className="t-caption text-[var(--body-muted)]">
+                ankushbhataab@gmail.com
+              </p>
             </div>
           </a>
 
@@ -51,7 +57,9 @@ export function Contact() {
             </span>
             <div>
               <p className="t-body-strong">LinkedIn</p>
-              <p className="t-caption text-[var(--body-muted)]">linkedin.com/in/ankushab</p>
+              <p className="t-caption text-[var(--body-muted)]">
+                linkedin.com/in/ankushab
+              </p>
             </div>
           </a>
 
@@ -66,7 +74,9 @@ export function Contact() {
             </span>
             <div>
               <p className="t-body-strong">GitHub</p>
-              <p className="t-caption text-[var(--body-muted)]">github.com/bhatankush</p>
+              <p className="t-caption text-[var(--body-muted)]">
+                github.com/bhatankush
+              </p>
             </div>
           </a>
         </div>

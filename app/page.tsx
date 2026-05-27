@@ -8,6 +8,7 @@ import { Certifications } from "@/components/sections/Certifications";
 import { Writing } from "@/components/sections/Writing";
 import { GitHubActivity } from "@/components/sections/GitHubActivity";
 import { Contact } from "@/components/sections/Contact";
+import { Communities } from "@/components/sections/Communities";
 
 export default function HomePage() {
   return (
@@ -15,13 +16,14 @@ export default function HomePage() {
       <Hero />
       <About />
       <Experience />
-      <Education />
       <Projects />
-      {/* <Awards /> */}
+      <Education />
       <Certifications />
+      <Communities />   {/* moved up — before Writing/GitHub */}
       <Writing />
       <GitHubActivity />
       <Contact />
     </div>
   );
 }
+    

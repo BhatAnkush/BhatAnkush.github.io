@@ -8,10 +8,10 @@ import { Menu, X, Download } from "lucide-react";
 const NAV_LINKS = [
   { href: "#about", label: "About" },
   { href: "#experience", label: "Experience" },
-  { href: "#education", label: "Education" },
   { href: "#projects", label: "Projects" },
-  // { href: "#awards", label: "Awards" },
+  { href: "#education", label: "Education" },
   { href: "#certifications", label: "Certifications" },
+  { href: "#communities", label: "Communities" },
   { href: "#writing", label: "Writing" },
   { href: "#contact", label: "Contact" },
 ];
@@ -31,7 +31,7 @@ export function Navbar() {
           }
         });
       },
-      { rootMargin: "-20% 0px -80% 0px" }
+      { rootMargin: "-20% 0px -80% 0px" },
     );
 
     const sections = document.querySelectorAll("section[id]");
@@ -42,14 +42,18 @@ export function Navbar() {
     };
   }, []);
 
-  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleScroll = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
     const targetId = href.replace(/.*#/, "");
     const elem = document.getElementById(targetId);
-    
+
     // If the section exists on current page, scroll to it
     if (elem) {
       e.preventDefault();
-      const top = elem.getBoundingClientRect().top + window.scrollY - NAV_OFFSET;
+      const top =
+        elem.getBoundingClientRect().top + window.scrollY - NAV_OFFSET;
       window.scrollTo({ top, behavior: "smooth" });
       window.history.pushState(null, "", href);
     }
@@ -58,7 +62,7 @@ export function Navbar() {
       e.preventDefault();
       window.location.href = "/" + href;
     }
-    
+
     setMenuOpen(false);
   };
 
@@ -91,10 +95,13 @@ export function Navbar() {
       <nav
         className="flex h-[52px] shrink-0 items-center justify-between border-b border-[rgba(0,0,0,0.08)] px-4 backdrop-blur-xl backdrop-saturate-180 sm:px-6 dark:border-[rgba(255,255,255,0.08)]"
         style={{
-          backgroundColor: "color-mix(in srgb, var(--canvas-parchment) 80%, transparent)",
+          backgroundColor:
+            "color-mix(in srgb, var(--canvas-parchment) 80%, transparent)",
         }}
       >
-        <span className="t-tagline shrink-0 text-[var(--ink)]"><img src="/favicon.svg" alt="favicon" /></span>
+        <span className="t-tagline shrink-0 text-[var(--ink)]">
+          <img src="/favicon.svg" alt="favicon" />
+        </span>
 
         <ul className="hidden min-[834px]:flex min-[834px]:flex-wrap min-[834px]:items-center min-[834px]:justify-end min-[834px]:gap-1 min-[834px]:pl-4">
           {NAV_LINKS.map(({ href, label }) => {
@@ -108,7 +115,7 @@ export function Navbar() {
                     "t-button-utility cursor-pointer rounded-[var(--radius-sm-token)] px-2.5 py-2 transition-colors",
                     active
                       ? "text-[var(--primary-action)]"
-                      : "text-[var(--ink-muted-80)] hover:text-[var(--ink)] dark:text-[var(--body-muted)] dark:hover:text-[var(--on-dark)]"
+                      : "text-[var(--ink-muted-80)] hover:text-[var(--ink)] dark:text-[var(--body-muted)] dark:hover:text-[var(--on-dark)]",
                   )}
                 >
                   {label}
@@ -120,13 +127,13 @@ export function Navbar() {
 
         <div className="flex shrink-0 items-center gap-2 min-[834px]:ml-4">
           <a
-            href="/resume/ankush-bhat.pdf"
+            href="/Cover Letter/ankush-bhat.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="t-button-utility inline-flex items-center gap-1.5 rounded-full bg-[var(--ink)] px-4 py-1.5 text-xs text-[var(--on-dark)] dark:text-black transition-opacity hover:opacity-90"
           >
             <Download className="size-3.5" />
-            Resume
+            Cover Letter
           </a>
         </div>
       </nav>
@@ -135,7 +142,8 @@ export function Navbar() {
         <div
           className="min-[834px]:hidden border-b border-[var(--hairline)] px-4 py-3 backdrop-blur-xl backdrop-saturate-180 max-h-[min(70vh,520px)] overflow-y-auto"
           style={{
-            backgroundColor: "color-mix(in srgb, var(--canvas-parchment) 92%, transparent)",
+            backgroundColor:
+              "color-mix(in srgb, var(--canvas-parchment) 92%, transparent)",
           }}
         >
           <div className="flex flex-col gap-0.5">
@@ -150,7 +158,7 @@ export function Navbar() {
                     "t-button-utility cursor-pointer rounded-[var(--radius-sm-token)] px-3 py-3",
                     active
                       ? "text-[var(--primary-action)]"
-                      : "text-[var(--ink-muted-80)] dark:text-[var(--body-muted)]"
+                      : "text-[var(--ink-muted-80)] dark:text-[var(--body-muted)]",
                   )}
                 >
                   {label}
@@ -158,14 +166,14 @@ export function Navbar() {
               );
             })}
             <a
-              href="/resume/ankush-bhat.pdf"
+              href="/Cover Letter/ankush-bhat.pdf"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setMenuOpen(false)}
               className="t-button-utility mt-2 flex cursor-pointer items-center gap-2 rounded-[var(--radius-sm-token)] border border-[var(--hairline)] px-3 py-3 text-[var(--ink)] dark:text-black"
             >
               <Download size={16} />
-              Download Resume
+              Download Cover Letter
             </a>
           </div>
         </div>

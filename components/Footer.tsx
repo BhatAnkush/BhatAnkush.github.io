@@ -6,12 +6,14 @@ export function Footer() {
     <footer className="border-t border-[var(--hairline)] bg-[var(--canvas-parchment)] dark:bg-[var(--surface-tile-3)]">
       {/* Top section */}
       <div className="mx-auto grid w-full max-w-[1440px] grid-cols-1 gap-12 px-5 py-14 sm:px-6 md:grid-cols-[2fr_1fr_1fr]">
-        
         {/* Brand column */}
         <div>
-          <p className="t-title-md text-[var(--ink)] dark:text-[var(--on-dark)]">Ankush Bhat</p>
+          <p className="t-title-md text-[var(--ink)] dark:text-[var(--on-dark)]">
+            Ankush Bhat
+          </p>
           <p className="mt-3 t-body text-[var(--body-muted)] dark:text-[var(--on-dark-muted)] max-w-sm leading-relaxed">
-            Software developer building thoughtful products. Open to new opportunities and collaborations.
+            Software developer building thoughtful products. Open to new
+            opportunities and collaborations.
           </p>
           {/* "Open to work" badge */}
           <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-[#2997ff33] bg-[#2997ff14] px-3 py-1">
@@ -22,11 +24,16 @@ export function Footer() {
 
         {/* Connect column */}
         <div>
-          <h3 className="t-fine-print mb-4 tracking-widest uppercase text-[var(--ink-muted-80)] dark:text-[var(--on-dark-muted)]">Connect</h3>
+          <h3 className="t-fine-print mb-4 tracking-widest uppercase text-[var(--ink-muted-80)] dark:text-[var(--on-dark-muted)]">
+            Connect
+          </h3>
           <ul className="space-y-2">
             {[
               { label: "GitHub", href: "https://github.com/bhatankush" },
-              { label: "LinkedIn", href: "https://www.linkedin.com/in/ankushab" },
+              {
+                label: "LinkedIn",
+                href: "https://www.linkedin.com/in/ankushab",
+              },
               { label: "Email", href: "mailto:ankushbhataab@gmail.com" },
             ].map(({ label, href }) => (
               <li key={label}>
@@ -37,7 +44,9 @@ export function Footer() {
                   className="group inline-flex items-center gap-1 t-body text-[var(--ink-muted-80)] dark:text-[var(--on-dark-muted)] transition hover:text-[var(--ink)] dark:hover:text-[var(--on-dark)]"
                 >
                   {label}
-                  <span className="opacity-40 transition group-hover:opacity-100">↗</span>
+                  <span className="opacity-40 transition group-hover:opacity-100">
+                    ↗
+                  </span>
                 </a>
               </li>
             ))}
@@ -46,10 +55,12 @@ export function Footer() {
 
         {/* Resources column */}
         <div>
-          <h3 className="t-fine-print mb-4 tracking-widest uppercase text-[var(--ink-muted-80)] dark:text-[var(--on-dark-muted)]">Resources</h3>
+          <h3 className="t-fine-print mb-4 tracking-widest uppercase text-[var(--ink-muted-80)] dark:text-[var(--on-dark-muted)]">
+            Resources
+          </h3>
           <ul className="space-y-2">
             {[
-              { label: "Resume", href: "/resume/ankush-bhat.pdf" },
+              { label: "Cover Letter", href: "/Cover Letter/ankush-bhat.pdf" },
               { label: "Projects", href: "https://github.com/bhatankush" },
             ].map(({ label, href }) => (
               <li key={label}>
@@ -60,7 +71,9 @@ export function Footer() {
                   className="group inline-flex items-center gap-1 t-body text-[var(--ink-muted-80)] dark:text-[var(--on-dark-muted)] transition hover:text-[var(--ink)] dark:hover:text-[var(--on-dark)]"
                 >
                   {label}
-                  <span className="opacity-40 transition group-hover:opacity-100">↗</span>
+                  <span className="opacity-40 transition group-hover:opacity-100">
+                    ↗
+                  </span>
                 </a>
               </li>
             ))}
@@ -76,8 +89,16 @@ export function Footer() {
           </p>
           <div className="flex items-center gap-2">
             {[
-              { href: "https://github.com/bhatankush", label: "GitHub", Icon: GithubIcon },
-              { href: "https://www.linkedin.com/in/ankushab", label: "LinkedIn", Icon: LinkedinIcon },
+              {
+                href: "https://github.com/bhatankush",
+                label: "GitHub",
+                Icon: GithubIcon,
+              },
+              {
+                href: "https://www.linkedin.com/in/ankushab",
+                label: "LinkedIn",
+                Icon: LinkedinIcon,
+              },
             ].map(({ href, label, Icon }) => (
               <a
                 key={label}
