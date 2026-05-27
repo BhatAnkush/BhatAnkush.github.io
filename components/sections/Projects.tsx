@@ -11,7 +11,16 @@ const PROJECTS = [
     image: "/project/truthlayer.png",
     description:
       "A full-stack AI application that analyses any news article URL into an interactive React Flow evidence board — classifying claims as facts, opinions, fallacies, or missing context — with SSE streaming, 15,000+ word article support, and cross-source contradiction detection powered by Llama 3.3 70B.",
-    tech: ["Next.js 14", "TypeScript", "Groq API", "React Flow", "Clerk", "Neon PostgreSQL", "Prisma", "Tailwind CSS"],
+    tech: [
+      "Next.js 14",
+      "TypeScript",
+      "Groq API",
+      "React Flow",
+      "Clerk",
+      "Neon PostgreSQL",
+      "Prisma",
+      "Tailwind CSS",
+    ],
     github: "https://github.com/BhatAnkush/truthlayer",
     live: "https://truthlayer-eight-dusky.vercel.app",
   },
@@ -20,7 +29,14 @@ const PROJECTS = [
     image: "/project/quizzy.png",
     description:
       "A full-featured quiz application with a built-in GCP certification module and a custom quiz engine that parses and validates user-uploaded JSON files for schema integrity. Features auto-save, cross-session progress tracking, and a synchronized 60-minute countdown timer.",
-    tech: ["React 19", "Vite", "JavaScript", "Context API", "Local Storage", "Tailwind CSS"],
+    tech: [
+      "React 19",
+      "Vite",
+      "JavaScript",
+      "Context API",
+      "Local Storage",
+      "Tailwind CSS",
+    ],
     github: "https://github.com/BhatAnkush/Quizzy",
     live: "https://quizzy-jxta.onrender.com/",
   },
@@ -62,7 +78,7 @@ export function Projects() {
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="h-[220px] w-full object-cover"
+                    className="h-[320px] w-full object-cover"
                   />
                 </Lens>
               </div>

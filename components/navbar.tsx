@@ -170,7 +170,7 @@ export function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setMenuOpen(false)}
-              className="t-button-utility mt-2 flex cursor-pointer items-center gap-2 rounded-[var(--radius-sm-token)] border border-[var(--hairline)] px-3 py-3 text-[var(--ink)] dark:text-black"
+              className="t-button-utility mt-2 flex cursor-pointer items-center gap-2 rounded-[var(--radius-sm-token)] border border-[var(--hairline)] px-3 py-3 text-[var(--ink)] dark:text-[var(--on-dark)]"
             >
               <Download size={16} />
               Download Cover Letter
