@@ -1,5 +1,4 @@
 ---
-
 title: "Secure Express APIs with Casbin RBAC & JWT"
 date: "2026-05-10"
 slug: "rbac-expressjs-casbin-jwt"
@@ -7,7 +6,7 @@ excerpt: "Stop scattering authorization logic across your routes. Learn how to i
 category: "Backend"
 author: "Ankush Ananth Bhat"
 image: "/posts/express-casbin-rbac.png"
----------------------------------------
+---
 
 ## The Authorization Problem Most APIs Eventually Face
 
@@ -26,20 +25,17 @@ if (user.role === "admin") {
 A few months later:
 
 ```javascript
-if (
-  user.role === "admin" ||
-  user.role === "manager"
-) {
+if (user.role === "admin" || user.role === "manager") {
   // allow access
 }
 ```
 
 Then comes:
 
-* Different permissions per module
-* Multiple roles per user
-* Temporary access grants
-* Resource ownership rules
+- Different permissions per module
+- Multiple roles per user
+- Temporary access grants
+- Resource ownership rules
 
 Before long, authorization logic is scattered across dozens of routes.
 
@@ -75,9 +71,9 @@ And access control like:
 
 | Role    | GET Users | POST Users | DELETE Users | Reports   |
 | ------- | --------- | ---------- | ------------ | --------- |
-| Admin   | ✅         | ✅          | ✅            | ✅         |
-| Manager | ✅         | ✅          | ❌            | ✅         |
-| User    | ✅         | ❌          | ❌            | Read Only |
+| Admin   | ✅        | ✅         | ✅           | ✅        |
+| Manager | ✅        | ✅         | ❌           | ✅        |
+| User    | ✅        | ❌         | ❌           | Read Only |
 
 ---
 
@@ -137,9 +133,9 @@ m = g(r.sub, p.sub) &&
 
 This defines:
 
-* Subject → User role
-* Object → Resource
-* Action → HTTP method
+- Subject → User role
+- Object → Resource
+- Action → HTTP method
 
 ---
 
@@ -185,10 +181,7 @@ const { newEnforcer } = require("casbin");
 let enforcer;
 
 async function initCasbin() {
-  enforcer = await newEnforcer(
-    "casbin/model.conf",
-    "casbin/policy.csv"
-  );
+  enforcer = await newEnforcer("casbin/model.conf", "casbin/policy.csv");
 }
 
 function getEnforcer() {
@@ -224,10 +217,7 @@ module.exports = (req, res, next) => {
   const token = authHeader.split(" ")[1];
 
   try {
-    const decoded = jwt.verify(
-      token,
-      process.env.JWT_SECRET
-    );
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
     req.user = decoded;
 
@@ -265,11 +255,7 @@ module.exports = (resource) => {
   return async (req, res, next) => {
     const role = req.user.role;
 
-    const allowed = await getEnforcer().enforce(
-      role,
-      resource,
-      req.method
-    );
+    const allowed = await getEnforcer().enforce(role, resource, req.method);
 
     if (!allowed) {
       return res.status(403).json({
@@ -298,38 +284,23 @@ const authorize = require("../middleware/authorize");
 
 const router = express.Router();
 
-router.get(
-  "/",
-  auth,
-  authorize("users"),
-  (req, res) => {
-    res.json({
-      message: "Users fetched",
-    });
-  }
-);
+router.get("/", auth, authorize("users"), (req, res) => {
+  res.json({
+    message: "Users fetched",
+  });
+});
 
-router.post(
-  "/",
-  auth,
-  authorize("users"),
-  (req, res) => {
-    res.json({
-      message: "User created",
-    });
-  }
-);
+router.post("/", auth, authorize("users"), (req, res) => {
+  res.json({
+    message: "User created",
+  });
+});
 
-router.delete(
-  "/:id",
-  auth,
-  authorize("users"),
-  (req, res) => {
-    res.json({
-      message: "User deleted",
-    });
-  }
-);
+router.delete("/:id", auth, authorize("users"), (req, res) => {
+  res.json({
+    message: "User deleted",
+  });
+});
 
 module.exports = router;
 ```
@@ -353,7 +324,7 @@ function generateToken(user) {
     process.env.JWT_SECRET,
     {
       expiresIn: "7d",
-    }
+    },
   );
 }
 ```
@@ -411,10 +382,7 @@ p, user, reports:view
 Then check permissions directly:
 
 ```javascript
-await enforcer.enforce(
-  role,
-  "user:create"
-);
+await enforcer.enforce(role, "user:create");
 ```
 
 This gives much finer control than simple roles.
@@ -427,10 +395,10 @@ Hardcoding permissions in CSV files works initially.
 
 For production systems, store policies in:
 
-* PostgreSQL
-* MySQL
-* MongoDB
-* Redis
+- PostgreSQL
+- MySQL
+- MongoDB
+- Redis
 
 Using Casbin adapters:
 
@@ -440,10 +408,10 @@ npm install casbin-pg-adapter
 
 Benefits:
 
-* Dynamic permission updates
-* Admin permission dashboard
-* Multi-tenant support
-* No redeploy required
+- Dynamic permission updates
+- Admin permission dashboard
+- Multi-tenant support
+- No redeploy required
 
 ---
 
@@ -559,9 +527,9 @@ Let Casbin handle permission checks.
 
 Track:
 
-* Who changed permissions
-* When they changed
-* What changed
+- Who changed permissions
+- When they changed
+- What changed
 
 Especially important for enterprise systems.
 
@@ -573,11 +541,11 @@ Role-Based Access Control is one of those things that starts simple and quickly 
 
 Using Express.js, JWT, and Casbin gives you:
 
-* Clean route handlers
-* Centralized authorization policies
-* Role hierarchies
-* Fine-grained permissions
-* Scalability for enterprise applications
+- Clean route handlers
+- Centralized authorization policies
+- Role hierarchies
+- Fine-grained permissions
+- Scalability for enterprise applications
 
 Instead of scattering permission checks throughout your codebase, let Casbin become the single source of truth for authorization.
 
@@ -585,4 +553,4 @@ Your future self — and your teammates — will thank you.
 
 ---
 
-*Building APIs with Express.js? RBAC is one of the highest-leverage security improvements you can add early. Questions, feedback, or ideas? Drop an email at [ankushbhataab@gmail.com](mailto:ankushbhataab@gmail.com).*
+_Building APIs with Express.js? RBAC is one of the highest-leverage security improvements you can add early. Questions, feedback, or ideas? Drop an email at [ankushbhataab@gmail.com](mailto:ankushbhataab@gmail.com)._
