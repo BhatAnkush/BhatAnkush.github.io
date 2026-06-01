@@ -118,7 +118,17 @@
   --primary-on-dark: #2997ff;
   --hairline: #e0e0e0;
   --divider-soft: rgba(0, 0, 0, 0.04);
-  --shadow-product: 3px 5px 30px 0 rgba(0, 0, 0, 0.22);
+  --shadow-product: 0 8px 32px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.06);
+  /* ── Glass system ── */
+  --glass-bg: rgba(255, 255, 255, 0.72);
+  --glass-border: rgba(200, 215, 255, 0.55);
+  --glass-shadow: 0 4px 24px rgba(79, 70, 229, 0.10), 0 1px 6px rgba(0, 0, 0, 0.06);
+  /* ── Tile surfaces ── */
+  --tile-light: rgba(255, 255, 255, 0.82);
+  --tile-parchment: rgba(235, 243, 255, 0.78);
+  --tile-dark: rgba(6, 12, 26, 0.93);
+  /* ── Page background ── */
+  --page-bg: linear-gradient(135deg, #e8f0ff 0%, #ede4ff 30%, #e0edff 65%, #e8f0ff 100%);
   --radius-sm-token: 8px;
   --radius-md-token: 11px;
   --radius-lg-token: 18px;
@@ -176,6 +186,16 @@
   --on-dark-muted: #cccccc;
   --hairline: rgba(255, 255, 255, 0.08);
   --divider-soft: rgba(255, 255, 255, 0.06);
+  /* ── Glass system (dark) ── */
+  --glass-bg: rgba(255, 255, 255, 0.06);
+  --glass-border: rgba(255, 255, 255, 0.10);
+  --glass-shadow: 0 4px 24px rgba(0, 0, 0, 0.40), 0 1px 6px rgba(0, 0, 0, 0.25);
+  /* ── Tile surfaces (dark) ── */
+  --tile-light: rgba(12, 22, 42, 0.82);
+  --tile-parchment: rgba(8, 16, 34, 0.78);
+  --tile-dark: rgba(3, 8, 18, 0.96);
+  /* ── Page background (dark) ── */
+  --page-bg: linear-gradient(135deg, #020817 0%, #07101f 50%, #020c1a 100%);
 
   --background: var(--canvas);
   --foreground: var(--ink);
@@ -209,7 +229,10 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
+    background: var(--page-bg);
+    background-attachment: fixed;
+    min-height: 100vh;
   }
   html {
     @apply font-sans;
@@ -388,6 +411,24 @@
 }
 .text-link-on-dark:hover {
   text-decoration: underline;
+}
+
+/* Glass card — adapts to light/dark theme (for use on light/parchment sections) */
+.glass-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Glass card dark — always dark glass (for use inside dark-surfaced sections) */
+.glass-card-dark {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.40), 0 1px 6px rgba(0, 0, 0, 0.20);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 
 /* Section vertical rhythm */

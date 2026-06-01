@@ -38,9 +38,9 @@ export function GitHubActivity() {
 
         // Fetch recent repositories
         const reposResponse = await fetch(
-          `https://api.github.com/users/${githubUsername}/repos?sort=updated&per_page=4`
+          `https://api.github.com/users/${githubUsername}/repos?sort=updated&per_page=4`,
         );
-        if (!reposResponse.ok) throw new Error('Failed to fetch repositories');
+        if (!reposResponse.ok) throw new Error("Failed to fetch repositories");
         const reposData = await reposResponse.json();
 
         setRepos(reposData);
@@ -49,11 +49,17 @@ export function GitHubActivity() {
         const languageMap = new Map<string, number>();
         reposData.forEach((repo: any) => {
           if (repo.language) {
-            languageMap.set(repo.language, (languageMap.get(repo.language) || 0) + 1);
+            languageMap.set(
+              repo.language,
+              (languageMap.get(repo.language) || 0) + 1,
+            );
           }
         });
 
-        const totalRepos = languageMap.size > 0 ? Array.from(languageMap.values()).reduce((a, b) => a + b, 0) : 1;
+        const totalRepos =
+          languageMap.size > 0
+            ? Array.from(languageMap.values()).reduce((a, b) => a + b, 0)
+            : 1;
         const languageData = Array.from(languageMap.entries())
           .map(([name, count]) => ({
             name,
@@ -65,7 +71,9 @@ export function GitHubActivity() {
 
         setLanguages(languageData);
       } catch (err) {
-        setError(err instanceof Error ? err.message : 'Failed to load GitHub data');
+        setError(
+          err instanceof Error ? err.message : "Failed to load GitHub data",
+        );
       } finally {
         setLoading(false);
       }
@@ -76,16 +84,18 @@ export function GitHubActivity() {
 
   if (loading) {
     return (
-      <Tile id="github-activity" surface="dark3" className="section-padding">
+      <Tile id="github-activity" surface="dark" className="section-padding">
         <TileInner wide>
           <div className="mb-10">
-           <HyperText>GitHub Activity</HyperText>
+            <HyperText>GitHub Activity</HyperText>
             <p className="mt-2 t-body text-[var(--on-dark-muted)]">
               Check out my latest contributions and repositories on GitHub.
             </p>
           </div>
           <div className="flex items-center justify-center py-20">
-            <div className="text-[var(--on-dark-muted)]">Loading GitHub data...</div>
+            <div className="text-[var(--on-dark-muted)]">
+              Loading GitHub data...
+            </div>
           </div>
         </TileInner>
       </Tile>
@@ -94,7 +104,7 @@ export function GitHubActivity() {
 
   if (error) {
     return (
-      <Tile id="github-activity" surface="dark3" className="section-padding">
+      <Tile id="github-activity" surface="dark" className="section-padding">
         <TileInner wide>
           <div className="mb-10">
             <HyperText>GitHub Activity</HyperText>
@@ -111,7 +121,7 @@ export function GitHubActivity() {
   }
 
   return (
-    <Tile id="github-activity" surface="dark3" className="section-padding">
+    <Tile id="github-activity" surface="dark" className="section-padding">
       <TileInner wide>
         <div className="mb-10">
           <HyperText>GitHub Activity</HyperText>
@@ -122,10 +132,11 @@ export function GitHubActivity() {
 
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
           {/* Recent Repositories */}
-          <div className="product-shadow overflow-hidden rounded-[var(--radius-lg-token)] bg-[var(--surface-tile-2)] p-6">
+          <div className="glass-card-dark overflow-hidden rounded-[var(--radius-lg-token)] p-6">
             <div className="mb-6 flex items-center gap-2">
-              <GithubIcon/>
-              <h3 className="t-display-sm text-[var(--on-dark)]">Recent Repositories</h3>
+              <h3 className="t-display-sm text-[var(--on-dark)]">
+                Recent Repositories
+              </h3>
             </div>
             <div className="space-y-4">
               {repos.map((repo) => (
@@ -134,16 +145,20 @@ export function GitHubActivity() {
                   href={repo.html_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block rounded-lg bg-[var(--surface-tile-1)] p-4 transition-colors hover:bg-[var(--surface-tile-1)]/80"
+                  className="block rounded-lg bg-white/[0.08] p-4 transition-colors hover:bg-white/[0.15]"
                 >
                   <div className="mb-2 flex items-start justify-between gap-2">
-                    <h4 className="t-button-utility font-medium text-[var(--on-dark)]">{repo.name}</h4>
+                    <h4 className="t-button-utility font-medium text-[var(--on-dark)]">
+                      {repo.name}
+                    </h4>
                     <span className="t-caption shrink-0 text-[var(--on-dark-muted)]">
                       {new Date(repo.updated_at).toLocaleDateString()}
                     </span>
                   </div>
                   {repo.description && (
-                    <p className="mb-3 line-clamp-2 t-caption text-[var(--on-dark-muted)]">{repo.description}</p>
+                    <p className="mb-3 line-clamp-2 t-caption text-[var(--on-dark-muted)]">
+                      {repo.description}
+                    </p>
                   )}
                   <div className="flex items-center gap-4">
                     {repo.language && (
@@ -165,7 +180,9 @@ export function GitHubActivity() {
               ))}
             </div>
             {repos.length === 0 && (
-              <div className="py-8 text-center text-[var(--on-dark-muted)]">No repositories found</div>
+              <div className="py-8 text-center text-[var(--on-dark-muted)]">
+                No repositories found
+              </div>
             )}
             <a
               href={`https://github.com/${githubUsername}?tab=repositories`}
@@ -179,19 +196,25 @@ export function GitHubActivity() {
           </div>
 
           {/* Top Languages */}
-          <div className="product-shadow overflow-hidden rounded-[var(--radius-lg-token)] bg-[var(--surface-tile-2)] p-6">
+          <div className="glass-card-dark overflow-hidden rounded-[var(--radius-lg-token)] p-6">
             <div className="mb-6 flex items-center gap-2">
               <Code className="size-5 text-[var(--primary-action)]" />
-              <h3 className="t-display-sm text-[var(--on-dark)]">Top Languages</h3>
+              <h3 className="t-display-sm text-[var(--on-dark)]">
+                Top Languages
+              </h3>
             </div>
             <div className="space-y-4">
               {languages.map((lang) => (
                 <div key={lang.name}>
                   <div className="mb-1 flex items-center justify-between">
-                    <span className="t-body text-[var(--on-dark)]">{lang.name}</span>
-                    <span className="t-caption text-[var(--on-dark-muted)]">{lang.percentage.toFixed(1)}%</span>
+                    <span className="t-body text-[var(--on-dark)]">
+                      {lang.name}
+                    </span>
+                    <span className="t-caption text-[var(--on-dark-muted)]">
+                      {lang.percentage.toFixed(1)}%
+                    </span>
                   </div>
-                  <div className="h-2 w-full overflow-hidden rounded-full bg-[var(--surface-tile-1)]">
+                  <div className="h-2 w-full overflow-hidden rounded-full bg-white/[0.08]">
                     <div
                       className="h-full rounded-full bg-[var(--primary-action)] transition-all duration-500"
                       style={{ width: `${lang.percentage}%` }}
@@ -201,7 +224,9 @@ export function GitHubActivity() {
               ))}
             </div>
             {languages.length === 0 && (
-              <div className="py-8 text-center text-[var(--on-dark-muted)]">No language data available</div>
+              <div className="py-8 text-center text-[var(--on-dark-muted)]">
+                No language data available
+              </div>
             )}
           </div>
         </div>

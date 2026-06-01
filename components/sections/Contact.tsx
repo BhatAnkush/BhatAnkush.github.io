@@ -7,7 +7,7 @@ import { HyperText } from "../ui/hyper-text";
 
 export function Contact() {
   return (
-    <Tile id="contact" surface="parchment" className="section-padding">
+    <Tile id="contact" surface="light" className="section-padding">
       <TileInner>
         <div className="mb-8">
           <HyperText>Get in touch.</HyperText>

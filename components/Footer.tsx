@@ -3,7 +3,7 @@ import { LinkedinIcon } from "./Icons/LinkedinIcon";
 
 export function Footer() {
   return (
-    <footer className="border-t border-[var(--hairline)] bg-[var(--canvas-parchment)] dark:bg-[var(--surface-tile-3)]">
+    <footer className="border-t border-[var(--glass-border)] bg-[var(--tile-parchment)] backdrop-blur-xl">
       {/* Top section */}
       <div className="mx-auto grid w-full max-w-[1440px] grid-cols-1 gap-12 px-5 py-14 sm:px-6 md:grid-cols-[2fr_1fr_1fr]">
         {/* Brand column */}

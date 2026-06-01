@@ -7,7 +7,8 @@ const CERTIFICATIONS = [
     title: "Associate Cloud Engineer",
     issuer: "Google Cloud",
     date: "Jul 2025",
-    verifyLink: "https://www.credly.com/badges/48ac672d-cb2b-44cc-b67a-d72a9c697b3c", // Placeholder
+    verifyLink:
+      "https://www.credly.com/badges/48ac672d-cb2b-44cc-b67a-d72a9c697b3c", // Placeholder
   },
   {
     title: "Python Basic",
@@ -31,11 +32,11 @@ const CERTIFICATIONS = [
 
 export function Certifications() {
   return (
-    <Tile id="certifications" surface="parchment" className="section-padding">
+    <Tile id="certifications" surface="dark" className="section-padding">
       <TileInner wide>
         <div className="mb-10">
           <HyperText>Certifications</HyperText>
-          <p className="mt-2 t-body text-[var(--body-muted)]">
+          <p className="mt-2 t-body text-[var(--on-dark-muted)]">
             My cloud and programming certifications validating expertise.
           </p>
         </div>
@@ -44,11 +45,17 @@ export function Certifications() {
           {CERTIFICATIONS.map((cert, i) => (
             <article
               key={i}
-              className="rounded-[var(--radius-lg-token)] border border-[var(--hairline)] bg-[var(--canvas)] p-6"
+              className="glass-card-dark rounded-[var(--radius-lg-token)] p-6"
             >
-              <span className="t-caption text-[var(--body-muted)]">{cert.date}</span>
-              <h3 className="mt-2 t-tagline">{cert.title}</h3>
-              <p className="mb-5 mt-1 t-caption text-[var(--ink-muted-80)]">{cert.issuer}</p>
+              <span className="t-caption text-[var(--on-dark-muted)]">
+                {cert.date}
+              </span>
+              <h3 className="mt-2 t-tagline text-[var(--on-dark)]">
+                {cert.title}
+              </h3>
+              <p className="mb-5 mt-1 t-caption text-[var(--on-dark-muted)]">
+                {cert.issuer}
+              </p>
 
               <a
                 href={cert.verifyLink}

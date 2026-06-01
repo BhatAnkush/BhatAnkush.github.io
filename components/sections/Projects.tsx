@@ -66,7 +66,7 @@ export function Projects() {
           {PROJECTS.map((project, i) => (
             <article
               key={i}
-              className="roundedradius-lg-token border border-[var(--hairline)] bg-[var(--canvas)] p-6"
+              className="glass-card rounded-[var(--radius-lg-token)] p-6"
             >
               <div className="mb-5 w-full overflow-hidden rounded-[var(--radius-lg-token)] bg-[var(--canvas-parchment)]">
                 <Lens

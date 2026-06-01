@@ -81,7 +81,7 @@ export function Communities() {
   };
 
   return (
-    <Tile id="communities" surface="parchment" className="section-padding">
+    <Tile id="communities" surface="light" className="section-padding">
       <TileInner>
         <HyperText>Communities</HyperText>
 
@@ -91,8 +91,8 @@ export function Communities() {
 
         <div className="relative overflow-hidden">
           {/* Edge fades */}
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-24 z-10 bg-linear-to-r from-[var(--canvas-parchment)] to-transparent" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-24 z-10 bg-linear-to-l from-[var(--canvas-parchment)] to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-24 z-10 bg-linear-to-r from-white/80 dark:from-[#0c1628]/80 to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-24 z-10 bg-linear-to-l from-white/80 dark:from-[#0c1628]/80 to-transparent" />
 
           <div ref={trackRef} className="carousel-track flex w-max py-4">
             {/* Render twice for seamless loop */}
