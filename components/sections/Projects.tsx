@@ -54,7 +54,7 @@ const PROJECTS = [
 export function Projects() {
   return (
     <Tile id="projects" surface="light" className="section-padding">
-      <TileInner wide>
+      <TileInner>
         <div className="mb-10">
           <HyperText>Featured Projects</HyperText>
           <p className="mt-2 t-body text-body-muted">

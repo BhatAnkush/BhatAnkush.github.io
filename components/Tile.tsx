@@ -37,7 +37,7 @@ export function TileInner({
     <div
       className={cn(
         "mx-auto w-full px-5 sm:px-6",
-        wide ? "max-w-[1440px]" : "max-w-[980px]",
+        wide ? "max-w-[1440px]" : "max-w-[1200px]",
         className,
       )}
       {...props}

@@ -121,8 +121,8 @@ export function About() {
                 duration={650}
                 className="rounded-[var(--radius-lg-token)]"
               >
-                <div className="glass-card rounded-[var(--radius-lg-token)] p-6 w-full">
-                  <div className="mx-auto mb-4 flex aspect-square max-w-[72px] items-center justify-center rounded-[var(--radius-sm-token)] bg-white/40 dark:bg-white/10">
+                <div className="bg-[var(--canvas)] dark:bg-white/[0.10] border border-[var(--hairline)] dark:border-white/[0.12] rounded-[var(--radius-lg-token)] p-6 w-full">
+                  <div className="mx-auto mb-4 flex aspect-square max-w-[72px] items-center justify-center rounded-[var(--radius-sm-token)] bg-[var(--canvas-parchment)] dark:bg-white/[0.15]">
                     <div className="relative h-10 w-10">
                       <Image
                         src={tech.icon}

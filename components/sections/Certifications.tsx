@@ -33,7 +33,7 @@ const CERTIFICATIONS = [
 export function Certifications() {
   return (
     <Tile id="certifications" surface="dark" className="section-padding">
-      <TileInner wide>
+      <TileInner>
         <div className="mb-10">
           <HyperText>Certifications</HyperText>
           <p className="mt-2 t-body text-[var(--on-dark-muted)]">
