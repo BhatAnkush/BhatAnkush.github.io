@@ -513,6 +513,14 @@
   overflow-x: auto;
   margin-bottom: 1em;
   color: #f1f5f9;
+  position: relative;
+}
+
+.code-block-wrapper {
+  margin-bottom: 1em;
+}
+.code-block-wrapper pre {
+  margin-bottom: 0;
 }
 .dark .markdown-content pre {
   background-color: var(--surface-tile-3);

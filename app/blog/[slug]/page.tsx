@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { Navbar } from "@/components/navbar";
 import Link from "next/link";
 import { Tile, TileInner } from "@/components/Tile";
+import { MarkdownContent } from "@/components/MarkdownContent";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -67,8 +68,12 @@ export default async function BlogPostPage({ params }: Props) {
             <span className="inline-block rounded-full bg-[var(--primary-action)] px-3 py-1 text-sm font-medium text-white">
               {post.category}
             </span>
-            <h1 className="t-display-lg mt-4 text-[var(--ink)] dark:text-[var(--on-dark)]">{post.title}</h1>
-            <p className="mt-3 t-body text-[var(--body-muted)] dark:text-[var(--on-dark-muted)]">{post.excerpt}</p>
+            <h1 className="t-display-lg mt-4 text-[var(--ink)] dark:text-[var(--on-dark)]">
+              {post.title}
+            </h1>
+            <p className="mt-3 t-body text-[var(--body-muted)] dark:text-[var(--on-dark-muted)]">
+              {post.excerpt}
+            </p>
             {post.image && (
               <div className="relative mx-auto mt-6 h-[400px] w-full max-w-4xl overflow-hidden rounded-xl">
                 <img
@@ -86,18 +91,23 @@ export default async function BlogPostPage({ params }: Props) {
             <article className="lg:col-span-8">
               {/* Author & Date */}
               <div className="mb-10 flex items-center gap-3 border-b border-[var(--hairline)] pb-8">
-                <img src="/Ankush.png" alt="Ankush" className="size-10 shrink-0 rounded-full" />
+                <img
+                  src="/Ankush.png"
+                  alt="Ankush"
+                  className="size-10 shrink-0 rounded-full"
+                />
                 <div>
-                  <p className="t-body-strong text-[var(--ink)] dark:text-[var(--on-dark)]">{post.author}</p>
-                  <p className="t-caption text-[var(--body-muted)] dark:text-[var(--on-dark-muted)]">{formattedDate}</p>
+                  <p className="t-body-strong text-[var(--ink)] dark:text-[var(--on-dark)]">
+                    {post.author}
+                  </p>
+                  <p className="t-caption text-[var(--body-muted)] dark:text-[var(--on-dark-muted)]">
+                    {formattedDate}
+                  </p>
                 </div>
               </div>
 
               {/* Markdown Content */}
-              <div
-                className="markdown-content max-w-none"
-                dangerouslySetInnerHTML={{ __html: post.contentHtml }}
-              />
+              <MarkdownContent html={post.contentHtml} />
 
               {/* Back Link */}
               <div className="mt-16 border-t border-[var(--hairline)] pt-8">
@@ -113,15 +123,24 @@ export default async function BlogPostPage({ params }: Props) {
             {/* Sidebar */}
             <aside className="lg:col-span-4">
               <div className="rounded-xl bg-[var(--canvas-parchment)] dark:bg-[var(--surface-tile-2)] p-6">
-                <h3 className="t-display-sm mb-4 text-[var(--ink)] dark:text-[var(--on-dark)]">About the Author</h3>
+                <h3 className="t-display-sm mb-4 text-[var(--ink)] dark:text-[var(--on-dark)]">
+                  About the Author
+                </h3>
                 <div className="flex items-center gap-3 mb-4">
-                  <img src="/Ankush.png" alt="Ankush" className="size-12 shrink-0 rounded-full" />
+                  <img
+                    src="/Ankush.png"
+                    alt="Ankush"
+                    className="size-12 shrink-0 rounded-full"
+                  />
                   <div>
-                    <p className="t-body-strong text-[var(--ink)] dark:text-[var(--on-dark)]">{post.author}</p>
+                    <p className="t-body-strong text-[var(--ink)] dark:text-[var(--on-dark)]">
+                      {post.author}
+                    </p>
                   </div>
                 </div>
                 <p className="t-body text-[var(--body-muted)] dark:text-[var(--on-dark-muted)]">
-                  Software developer sharing insights on technology, development, and more.
+                  Software developer sharing insights on technology,
+                  development, and more.
                 </p>
               </div>
             </aside>
