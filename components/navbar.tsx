@@ -128,8 +128,7 @@ export function Navbar() {
         <div className="flex shrink-0 items-center gap-2 min-[834px]:ml-4">
           <a
             href="/Cover Letter/ankush-bhat.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
+            download
             className="t-button-utility inline-flex items-center gap-1.5 rounded-full bg-[var(--ink)] px-4 py-1.5 text-xs text-[var(--on-dark)] dark:text-black transition-opacity hover:opacity-90"
           >
             <Download className="size-3.5" />
@@ -167,8 +166,7 @@ export function Navbar() {
             })}
             <a
               href="/Cover Letter/ankush-bhat.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
+              download
               onClick={() => setMenuOpen(false)}
               className="t-button-utility mt-2 flex cursor-pointer items-center gap-2 rounded-[var(--radius-sm-token)] border border-[var(--hairline)] px-3 py-3 text-[var(--ink)] dark:text-[var(--on-dark)]"
             >
