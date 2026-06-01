@@ -176,7 +176,7 @@ export function Hero() {
                   asChild
                 >
                   <a
-                    href="/Cover Letter/ankush-bhat.pdf"
+                    href="/Cover Letter/ankush-ananth-bhat.pdf"
                     download
                     className="inline-flex items-center gap-2"
                   >
@@ -264,7 +264,7 @@ export function Hero() {
               </div>
 
               {/* Floating badge — GCP */}
-              <div className="absolute top-8 -right-4 sm:-right-8 flex items-center gap-3 rounded-2xl border border-[var(--hairline)] bg-white/95 backdrop-blur-md px-4 py-3 shadow-xl">
+              <div className="absolute top-8 -right-8 sm:-right-8 flex items-center gap-3 rounded-2xl border border-[var(--hairline)] bg-white/95 backdrop-blur-md px-4 py-3 shadow-xl">
                 <Image
                   src="/gcp.png"
                   alt="GCP"

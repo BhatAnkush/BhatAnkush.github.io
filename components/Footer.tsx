@@ -60,7 +60,7 @@ export function Footer() {
           </h3>
           <ul className="space-y-2">
             {[
-              { label: "Cover Letter", href: "/Cover Letter/ankush-bhat.pdf" },
+              { label: "Cover Letter", href: "/Cover Letter/ankush-ananth-bhat.pdf" },
               { label: "Projects", href: "https://github.com/bhatankush" },
             ].map(({ label, href }) => (
               <li key={label}>

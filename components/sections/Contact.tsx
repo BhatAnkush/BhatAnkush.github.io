@@ -23,7 +23,7 @@ export function Contact() {
           </Button>
           <Button variant="secondaryPill" size="navPill" asChild>
             <a
-              href="/Cover Letter/ankush-bhat.pdf"
+              href="/Cover Letter/ankush-ananth-bhat.pdf"
               target="_blank"
               rel="noopener noreferrer"
             >
