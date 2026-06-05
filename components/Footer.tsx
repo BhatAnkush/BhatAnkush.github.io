@@ -1,4 +1,4 @@
-import { Mail, ArrowUpRight, BookMarked } from "lucide-react";
+import { Mail, FileText, ArrowUpRight, BookMarked } from "lucide-react";
 import { GithubIcon } from "./Icons/GithubIcon";
 import { LinkedinIcon } from "./Icons/LinkedinIcon";
 
@@ -82,12 +82,12 @@ export function Footer() {
                   {
                     label: "Cover Letter",
                     href: "/Cover Letter/ankush-ananth-bhat.pdf",
-                    Icon: BookMarked,
+                    Icon: FileText,
                   },
                   {
                     label: "View Projects",
                     href: "https://github.com/BhatAnkush?tab=repositories",
-                    Icon: GithubIcon,
+                    Icon: BookMarked,
                   },
                 ].map(({ label, href, Icon }) => (
                   <li key={label}>

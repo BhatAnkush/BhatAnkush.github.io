@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Moon, Sun } from "lucide-react";
@@ -31,14 +31,6 @@ const TRANSITION_VARIANTS: TransitionVariant[] = [
   "rectangle",
   "star",
 ];
-
-function pickNextVariant(previous?: TransitionVariant): TransitionVariant {
-  const pool = previous
-    ? TRANSITION_VARIANTS.filter((item) => item !== previous)
-    : TRANSITION_VARIANTS;
-  const randomIndex = Math.floor(Math.random() * pool.length);
-  return pool[randomIndex];
-}
 
 function polygonCollapsed(cx: number, cy: number, vertexCount: number): string {
   const pairs = Array.from(
@@ -150,18 +142,9 @@ export const AnimatedThemeToggler = ({
   onClick,
   ...props
 }: AnimatedThemeTogglerProps) => {
-  const [autoVariant, setAutoVariant] = useState<TransitionVariant>(() =>
-    pickNextVariant(),
-  );
-  const shape = variant ?? autoVariant;
   const [isDark, setIsDark] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
-
-  // Keep track of the freshest shape variant using a mutable ref
-  const shapeRef = useRef(shape);
-  useEffect(() => {
-    shapeRef.current = shape;
-  }, [shape]);
+  const cycleIndexRef = useRef(-1);
 
   useEffect(() => {
     const updateTheme = () => {
@@ -183,10 +166,13 @@ export const AnimatedThemeToggler = ({
     const button = buttonRef.current;
     if (!button) return;
 
-    const currentShape = shapeRef.current; // Read the fresh shape variant from the ref
-    if (!variant) {
-      setAutoVariant((previous) => pickNextVariant(previous));
-    }
+    const currentShape =
+      variant ??
+      (() => {
+        cycleIndexRef.current =
+          (cycleIndexRef.current + 1) % TRANSITION_VARIANTS.length;
+        return TRANSITION_VARIANTS[cycleIndexRef.current];
+      })();
     const viewportWidth = window.visualViewport?.width ?? window.innerWidth;
     const viewportHeight = window.visualViewport?.height ?? window.innerHeight;
 

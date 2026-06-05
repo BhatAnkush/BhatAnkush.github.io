@@ -7,7 +7,7 @@ import { ThemeScript } from "@/components/theme-script";
 import { Footer } from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-
+import { SmoothCursor } from "@/components/ui/smooth-cursor";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
@@ -34,7 +34,11 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn("h-full antialiased font-sans", inter.variable, geistMono.variable)}
+      className={cn(
+        "h-full antialiased font-sans",
+        inter.variable,
+        geistMono.variable,
+      )}
     >
       <head>
         <ThemeScript />
@@ -42,7 +46,7 @@ export default function RootLayout({
       <body
         className={cn(
           "min-h-full flex flex-col bg-background text-foreground",
-          inter.className
+          inter.className,
         )}
       >
         <Navbar />
@@ -50,6 +54,7 @@ export default function RootLayout({
         <Footer />
         <Analytics />
         <SpeedInsights />
+        <SmoothCursor />
       </body>
     </html>
   );
