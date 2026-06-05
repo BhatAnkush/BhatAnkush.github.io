@@ -22,6 +22,7 @@ export function Navbar() {
   const [activeSection, setActiveSection] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
 
+  // Effect 1: Handle scroll spy (Intersection Observer)
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -76,10 +77,7 @@ export function Navbar() {
           </span>
         </div>
         <div className="relative z-10 ml-auto flex items-center gap-2">
-          <AnimatedThemeToggler
-            variant="circle"
-            className="flex size-9 shrink-0 items-center justify-center rounded-[var(--radius-sm-token)] bg-[var(--ink)] text-[var(--on-dark)] dark:text-black btn-press btn-focus [&_svg]:size-[18px]"
-          />
+          <AnimatedThemeToggler className="flex size-9 shrink-0 items-center justify-center rounded-[var(--radius-sm-token)] bg-[var(--ink)] text-[var(--on-dark)] dark:text-black btn-press btn-focus [&_svg]:size-[18px]" />
           <button
             type="button"
             className="flex min-[834px]:hidden size-9 shrink-0 items-center justify-center rounded-[var(--radius-sm-token)] bg-[var(--ink)] text-[var(--on-dark)] dark:text-black btn-press btn-focus"
