@@ -19,7 +19,7 @@ const COMMUNITIES = [
   {
     name: "GDGOC SCEM",
     logo: "/communities/gdgoc.webp",
-    href: "https://gdg.community.dev/gdg-on-campus-sahyadri-college-of-engineering-management-mangaluru-india/",
+    href: "https://developers.google.com/profile/badges/community/dsc/2022/core-member?u=ankushbhat",
   },
   {
     name: "Sahyadri Open Source Community",
