@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Tile, TileInner } from "@/components/Tile";
-import { Star, GitFork, Code } from "lucide-react";
+import { Star, GitFork, Code, BookMarked } from "lucide-react";
 import { GithubIcon } from "../Icons/GithubIcon";
 import { HyperText } from "../ui/hyper-text";
 
@@ -134,6 +134,7 @@ export function GitHubActivity() {
           {/* Recent Repositories */}
           <div className="glass-card-dark overflow-hidden rounded-[var(--radius-lg-token)] p-6">
             <div className="mb-6 flex items-center gap-2">
+              <BookMarked className="size-5 text-[var(--primary-action)]" />
               <h3 className="t-display-sm text-[var(--on-dark)]">
                 Recent Repositories
               </h3>
