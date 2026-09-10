@@ -55,7 +55,7 @@ function CommunityCard({
       onMouseLeave={onResume}
       className="group flex flex-col items-center gap-2 px-10 shrink-0 cursor-pointer"
     >
-      <div className="relative h-[96px] w-[96px]">
+      <div className="relative h-24 w-24">
         <Image
           src={logo}
           alt={name}
@@ -63,7 +63,7 @@ function CommunityCard({
           className="object-contain grayscale opacity-50 transition-all duration-300 group-hover:grayscale-0 group-hover:opacity-100"
         />
       </div>
-      <span className="whitespace-nowrap text-xs text-[var(--ink-muted-48)] transition-colors duration-300 group-hover:text-[var(--ink)]">
+      <span className="whitespace-nowrap text-xs text-ink-muted-48 transition-colors duration-300 group-hover:text-ink">
         {name}
       </span>
     </a>
