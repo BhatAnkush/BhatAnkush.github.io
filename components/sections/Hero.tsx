@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { BlueprintPortrait } from "@/components/BlueprintPortrait";
 import { AnimateIcon } from "@animate-ui/react/icons";
 import { Download } from "@/components/animate-ui/icons/download";
 import { ExternalLink } from "@/components/animate-ui/icons/external-link";
@@ -194,44 +195,7 @@ export function Hero() {
                     <span className="size-1.5 rounded-full bg-emerald-400" />
                   </div>
                 </div>
-                <div className="group/portrait relative aspect-[4/5] overflow-hidden rounded-[1.5rem] bg-slate-800">
-                  <Image
-                    src="/Ankush.png"
-                    alt="Ankush Ananth Bhat"
-                    fill
-                    priority
-                    sizes="(max-width: 1024px) 460px, 36vw"
-                    className="object-cover object-center"
-                  />
-                  <div className="pointer-events-none absolute inset-0 [clip-path:inset(0_100%_0_0)] transition-[clip-path] duration-700 ease-out group-hover/portrait:[clip-path:inset(0_0_0_0)]">
-                    <Image
-                      src="/Ankush.png"
-                      alt=""
-                      fill
-                      aria-hidden
-                      sizes="(max-width: 1024px) 460px, 36vw"
-                      className="object-cover object-center grayscale contrast-125 brightness-90"
-                    />
-                    <div className="absolute inset-0 bg-blue-600 mix-blend-color" />
-                    <div className="absolute inset-0 bg-blue-500/25 mix-blend-multiply" />
-                    <div
-                      className="absolute inset-0 opacity-40"
-                      style={{
-                        backgroundImage:
-                          "linear-gradient(to right, rgba(147,197,253,0.35) 1px, transparent 1px), linear-gradient(to bottom, rgba(147,197,253,0.35) 1px, transparent 1px)",
-                        backgroundSize: "28px 28px",
-                      }}
-                    />
-                    <span className="absolute left-4 top-4 font-mono text-[9px] uppercase tracking-[0.22em] text-blue-200">
-                      Blueprint / build mode
-                    </span>
-                    <span className="absolute left-3 top-3 size-4 border-l border-t border-blue-200/80" />
-                    <span className="absolute right-3 top-3 size-4 border-r border-t border-blue-200/80" />
-                    <span className="absolute bottom-24 left-3 size-4 border-b border-l border-blue-200/80" />
-                    <span className="absolute bottom-24 right-3 size-4 border-b border-r border-blue-200/80" />
-                  </div>
-                  <div className="pointer-events-none absolute inset-y-0 left-0 w-px bg-blue-300 opacity-0 shadow-[0_0_18px_4px_rgba(96,165,250,0.8)] transition-all duration-700 ease-out group-hover/portrait:left-full group-hover/portrait:opacity-100" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-transparent to-transparent" />
+                <BlueprintPortrait>
                   <div className="absolute inset-x-0 bottom-0 p-6 text-white">
                     <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-blue-300">
                       Currently building at
@@ -264,7 +228,7 @@ export function Hero() {
                       />
                     </div>
                   </div>
-                </div>
+                </BlueprintPortrait>
                 <div className="flex items-center justify-between gap-4 px-4 pb-2 pt-3 text-white">
                   <div className="flex items-center gap-3">
                     <span className="flex size-9 items-center justify-center rounded-xl bg-white p-1.5">
