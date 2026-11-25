@@ -3,24 +3,45 @@ import { Tile, TileInner } from "@/components/Tile";
 import { HyperText } from "../ui/hyper-text";
 import { GlareHover } from "../ui/glare-hover";
 import { IconTagPill } from "@/components/IconTagPill";
-import { Layers, Cloud, Bot, Database } from "lucide-react";
+import {
+  BadgeCheck,
+  Bot,
+  Braces,
+  Cloud,
+  GraduationCap,
+  Layers,
+  Users,
+  Workflow,
+} from "lucide-react";
 
 const SKILLS = [
   {
-    label: "Full Stack Development",
-    icon: <Layers size={15} aria-hidden="true" className="shrink-0" />,
-  },
-  {
-    label: "Cloud Engineering",
+    label: "Google Cloud Platform",
     icon: <Cloud size={15} aria-hidden="true" className="shrink-0" />,
   },
   {
-    label: "AI Integration",
+    label: "Microservices",
+    icon: <Workflow size={15} aria-hidden="true" className="shrink-0" />,
+  },
+  {
+    label: "Node.js & Express.js",
+    icon: <Braces size={15} aria-hidden="true" className="shrink-0" />,
+  },
+  {
+    label: "React",
+    icon: <Layers size={15} aria-hidden="true" className="shrink-0" />,
+  },
+  {
+    label: "REST APIs",
+    icon: <Workflow size={15} aria-hidden="true" className="shrink-0" />,
+  },
+  {
+    label: "Machine Learning",
     icon: <Bot size={15} aria-hidden="true" className="shrink-0" />,
   },
   {
-    label: "Database Design",
-    icon: <Database size={15} aria-hidden="true" className="shrink-0" />,
+    label: "Gemini Enterprise",
+    icon: <Cloud size={15} aria-hidden="true" className="shrink-0" />,
   },
 ];
 
@@ -71,30 +92,83 @@ export function About() {
   return (
     <Tile id="about" surface="parchment" className="section-padding">
       <TileInner>
-        <HyperText>About Me</HyperText>
+        <div className="mb-10 grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-end">
+          <div>
+            <p className="mb-4 font-mono text-xs font-semibold uppercase tracking-[0.18em] text-blue-600 dark:text-blue-400">
+              Cloud &amp; Full-Stack Engineer
+            </p>
+            <HyperText>About Me</HyperText>
+          </div>
+          <div className="flex items-center gap-4 rounded-2xl border border-[var(--hairline)] bg-white/60 p-4 dark:bg-white/[0.05]">
+            <span className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-blue-600 text-white shadow-lg shadow-blue-600/20">
+              <BadgeCheck size={24} />
+            </span>
+            <div>
+              <p className="text-2xl font-semibold tracking-tight">4×</p>
+              <p className="text-sm text-body-muted">
+                Google Cloud certified
+              </p>
+            </div>
+          </div>
+        </div>
 
-        <div className="mb-10 space-y-4 text-body-muted t-body">
-          <p>
-            I&apos;m a Full Stack Engineer at Niveus Solutions (NTT Data),
-            building production web applications and cloud-native systems on
-            Google Cloud Platform. I specialize in React / Next.js frontends,
-            Node.js backends, and LLM-powered products — from real-time
-            WebSocket features to AI pipelines integrating large language
-            models. I hold a B.E. in Information Science &amp; Engineering and
-            the Google Cloud Associate Cloud Engineer certification.
+        <div className="mb-12 grid gap-8 border-y border-[var(--hairline)] py-8 lg:grid-cols-[1.15fr_0.85fr]">
+          <p className="text-xl leading-relaxed tracking-[-0.02em] text-[var(--ink)] sm:text-2xl">
+            I build cloud-native web applications that turn real business
+            challenges into reliable, high-performance solutions.
           </p>
-          <p>
-            Outside of work, I build side projects that explore the intersection
-            of AI and the web — most recently TruthLayer, an AI-powered news
-            analysis tool. I&apos;m also passionate about open-source
-            communities, having led a 200+ member student community and served
-            as Vice President of the Newton School coding chapter.
+          <p className="leading-relaxed text-body-muted">
+            At Niveus Solutions, an NTT DATA company, I work across the full
+            stack—from responsive React front ends to Node.js microservices
+            deployed on Google Cloud. My current focus is building scalable,
+            AI-ready applications with machine learning and Gemini Enterprise.
           </p>
         </div>
 
-        {/* Skill pills with icons */}
+        <div className="mb-14 grid gap-4 md:grid-cols-3">
+          <div className="rounded-2xl border border-[var(--hairline)] bg-white/55 p-6 dark:bg-white/[0.05]">
+            <BadgeCheck className="mb-5 text-blue-600 dark:text-blue-400" />
+            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-body-muted">
+              Certifications
+            </p>
+            <p className="font-semibold">ML Engineer · Associate Cloud Engineer</p>
+            <p className="mt-2 text-sm leading-relaxed text-body-muted">
+              Gemini Enterprise Deployment and Agent Development specialist
+              credentials.
+            </p>
+          </div>
+          <div className="rounded-2xl border border-[var(--hairline)] bg-white/55 p-6 dark:bg-white/[0.05]">
+            <GraduationCap className="mb-5 text-blue-600 dark:text-blue-400" />
+            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-body-muted">
+              Education
+            </p>
+            <p className="font-semibold">
+              B.E. in Information Science, with Distinction
+            </p>
+            <p className="mt-2 text-sm leading-relaxed text-body-muted">
+              Sahyadri College of Engineering &amp; Management
+            </p>
+          </div>
+          <div className="rounded-2xl border border-[var(--hairline)] bg-white/55 p-6 dark:bg-white/[0.05]">
+            <Users className="mb-5 text-blue-600 dark:text-blue-400" />
+            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-body-muted">
+              Community leadership
+            </p>
+            <p className="font-semibold">Community Lead · SOSC</p>
+            <p className="mt-2 text-sm leading-relaxed text-body-muted">
+              Vice President at Newton School, supporting developers through
+              mentorship and technical events.
+            </p>
+          </div>
+        </div>
+
         <div className="mb-12">
-          <h3 className="mb-4 t-tagline">My Skills</h3>
+          <div className="mb-5 flex items-end justify-between gap-4">
+            <h3 className="t-tagline">Core capabilities</h3>
+            <span className="hidden font-mono text-[10px] uppercase tracking-[0.16em] text-body-muted sm:block">
+              Cloud · Product · AI
+            </span>
+          </div>
           <div className="flex flex-wrap gap-2">
             {SKILLS.map((skill) => (
               <IconTagPill
@@ -108,7 +182,12 @@ export function About() {
         </div>
 
         <div>
-          <h3 className="mb-6 t-tagline">Tech Stack</h3>
+          <div className="mb-6 flex items-end justify-between gap-4">
+            <h3 className="t-tagline">Technologies I work with</h3>
+            <p className="hidden text-sm text-body-muted sm:block">
+              Selected production stack
+            </p>
+          </div>
           <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-5">
             {TECH_STACK.map((tech) => (
               <GlareHover

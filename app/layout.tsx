@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist_Mono, Inter } from "next/font/google";
+import { Geist_Mono, Instrument_Sans } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Navbar } from "@/components/navbar";
@@ -8,7 +8,7 @@ import { Footer } from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { SmoothCursor } from "@/components/ui/smooth-cursor";
-const inter = Inter({
+const instrumentSans = Instrument_Sans({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
@@ -36,7 +36,7 @@ export default function RootLayout({
       suppressHydrationWarning
       className={cn(
         "h-full antialiased font-sans",
-        inter.variable,
+        instrumentSans.variable,
         geistMono.variable,
       )}
     >
@@ -46,7 +46,7 @@ export default function RootLayout({
       <body
         className={cn(
           "min-h-full flex flex-col bg-background text-foreground",
-          inter.className,
+          instrumentSans.className,
         )}
       >
         <Navbar />
