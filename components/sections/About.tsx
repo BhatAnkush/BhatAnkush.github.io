@@ -3,46 +3,24 @@ import { Tile, TileInner } from "@/components/Tile";
 import { HyperText } from "../ui/hyper-text";
 import { GlareHover } from "../ui/glare-hover";
 import { IconTagPill } from "@/components/IconTagPill";
-import {
-  BadgeCheck,
-  Bot,
-  Braces,
-  Cloud,
-  GraduationCap,
-  Layers,
-  Users,
-  Workflow,
-} from "lucide-react";
+import { AnimateIcon } from "@animate-ui/react/icons";
+import { BadgeCheck } from "@/components/animate-ui/icons/badge-check";
+import { Bot } from "@/components/animate-ui/icons/bot";
+import { GraduationCap } from "@/components/animate-ui/icons/graduation-cap";
+import { Layers } from "@/components/animate-ui/icons/layers";
+import { Sparkles } from "@/components/animate-ui/icons/sparkles";
+import { Users } from "@/components/animate-ui/icons/users";
+
+const iconProps = { size: 15, "aria-hidden": true, className: "shrink-0" } as const;
 
 const SKILLS = [
-  {
-    label: "Google Cloud Platform",
-    icon: <Cloud size={15} aria-hidden="true" className="shrink-0" />,
-  },
-  {
-    label: "Microservices",
-    icon: <Workflow size={15} aria-hidden="true" className="shrink-0" />,
-  },
-  {
-    label: "Node.js & Express.js",
-    icon: <Braces size={15} aria-hidden="true" className="shrink-0" />,
-  },
-  {
-    label: "React",
-    icon: <Layers size={15} aria-hidden="true" className="shrink-0" />,
-  },
-  {
-    label: "REST APIs",
-    icon: <Workflow size={15} aria-hidden="true" className="shrink-0" />,
-  },
-  {
-    label: "Machine Learning",
-    icon: <Bot size={15} aria-hidden="true" className="shrink-0" />,
-  },
-  {
-    label: "Gemini Enterprise",
-    icon: <Cloud size={15} aria-hidden="true" className="shrink-0" />,
-  },
+  { label: "Google Cloud Platform", icon: <Sparkles {...iconProps} /> },
+  { label: "Microservices", icon: <Layers {...iconProps} /> },
+  { label: "Node.js & Express.js", icon: <Bot {...iconProps} /> },
+  { label: "React", icon: <Layers {...iconProps} /> },
+  { label: "REST APIs", icon: <Layers {...iconProps} /> },
+  { label: "Machine Learning", icon: <Bot {...iconProps} /> },
+  { label: "Gemini Enterprise", icon: <Sparkles {...iconProps} /> },
 ];
 
 const TECH_STACK = [
@@ -99,7 +77,7 @@ export function About() {
             </p>
             <HyperText>About Me</HyperText>
           </div>
-          <div className="flex items-center gap-4 rounded-2xl border border-[var(--hairline)] bg-white/60 p-4 dark:bg-white/[0.05]">
+          <AnimateIcon animateOnHover animation="path" className="flex items-center gap-4 rounded-2xl border border-[var(--hairline)] bg-white/60 p-4 dark:bg-white/[0.05]">
             <span className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-blue-600 text-white shadow-lg shadow-blue-600/20">
               <BadgeCheck size={24} />
             </span>
@@ -109,7 +87,7 @@ export function About() {
                 Google Cloud certified
               </p>
             </div>
-          </div>
+          </AnimateIcon>
         </div>
 
         <div className="mb-12 grid gap-8 border-y border-[var(--hairline)] py-8 lg:grid-cols-[1.15fr_0.85fr]">
@@ -126,8 +104,11 @@ export function About() {
         </div>
 
         <div className="mb-14 grid gap-4 md:grid-cols-3">
-          <div className="rounded-2xl border border-[var(--hairline)] bg-white/55 p-6 dark:bg-white/[0.05]">
-            <BadgeCheck className="mb-5 text-blue-600 dark:text-blue-400" />
+          <AnimateIcon animateOnHover animation="path" className="block rounded-2xl border border-[var(--hairline)] bg-white/55 p-6 dark:bg-white/[0.05]">
+            <BadgeCheck
+              size={24}
+              className="mb-5 text-blue-600 dark:text-blue-400"
+            />
             <p className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-body-muted">
               Certifications
             </p>
@@ -136,9 +117,12 @@ export function About() {
               Gemini Enterprise Deployment and Agent Development specialist
               credentials.
             </p>
-          </div>
-          <div className="rounded-2xl border border-[var(--hairline)] bg-white/55 p-6 dark:bg-white/[0.05]">
-            <GraduationCap className="mb-5 text-blue-600 dark:text-blue-400" />
+          </AnimateIcon>
+          <AnimateIcon animateOnHover animation="path" className="block rounded-2xl border border-[var(--hairline)] bg-white/55 p-6 dark:bg-white/[0.05]">
+            <GraduationCap
+              size={24}
+              className="mb-5 text-blue-600 dark:text-blue-400"
+            />
             <p className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-body-muted">
               Education
             </p>
@@ -148,9 +132,12 @@ export function About() {
             <p className="mt-2 text-sm leading-relaxed text-body-muted">
               Sahyadri College of Engineering &amp; Management
             </p>
-          </div>
-          <div className="rounded-2xl border border-[var(--hairline)] bg-white/55 p-6 dark:bg-white/[0.05]">
-            <Users className="mb-5 text-blue-600 dark:text-blue-400" />
+          </AnimateIcon>
+          <AnimateIcon animateOnHover animation="path" className="block rounded-2xl border border-[var(--hairline)] bg-white/55 p-6 dark:bg-white/[0.05]">
+            <Users
+              size={24}
+              className="mb-5 text-blue-600 dark:text-blue-400"
+            />
             <p className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-body-muted">
               Community leadership
             </p>
@@ -159,7 +146,7 @@ export function About() {
               Vice President at Newton School, supporting developers through
               mentorship and technical events.
             </p>
-          </div>
+          </AnimateIcon>
         </div>
 
         <div className="mb-12">

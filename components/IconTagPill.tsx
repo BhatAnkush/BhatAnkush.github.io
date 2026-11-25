@@ -1,6 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
+import { AnimateIcon } from "@animate-ui/react/icons";
 
 import { cn } from "@/lib/utils";
 
@@ -18,6 +19,7 @@ export function IconTagPill({
   surface = "light",
 }: IconTagPillProps) {
   return (
+    <AnimateIcon animateOnHover animation="path" className="inline-flex">
     <span
       className={cn(
         "group relative inline-flex items-center gap-2 overflow-hidden rounded-(--radius-pill-token) border px-4 py-1.5 t-caption transition-all duration-300",
@@ -31,5 +33,6 @@ export function IconTagPill({
       {icon}
       {label}
     </span>
+    </AnimateIcon>
   );
 }

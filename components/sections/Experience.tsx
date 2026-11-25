@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { TagPill } from "@/components/TagPill";
 import { Tile, TileInner } from "@/components/Tile";
 import { HyperText } from "../ui/hyper-text";
@@ -67,7 +68,13 @@ export function Experience() {
               </div>
               <div className="mb-5 flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
                 <div className="flex items-center gap-3">
-                  <img src={exp.logo} alt={exp.company} className="size-10 shrink-0 rounded-lg object-contain" />
+                  <Image
+                    src={exp.logo}
+                    alt={exp.company}
+                    width={40}
+                    height={40}
+                    className="size-10 shrink-0 rounded-lg object-contain"
+                  />
                   <span className="t-body text-on-dark">{exp.company}</span>
                 </div>
                 <span className="t-caption text-on-dark-muted">{exp.location}</span>

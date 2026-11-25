@@ -1,5 +1,7 @@
 import Image from "next/image";
-import { ArrowUpRight, BadgeCheck } from "lucide-react";
+import { AnimateIcon } from "@animate-ui/react/icons";
+import { BadgeCheck } from "@/components/animate-ui/icons/badge-check";
+import { ExternalLink } from "@/components/animate-ui/icons/external-link";
 import { Tile, TileInner } from "@/components/Tile";
 import { HyperText } from "../ui/hyper-text";
 
@@ -65,7 +67,7 @@ export function Certifications() {
         <div className="mb-12 grid gap-6 lg:grid-cols-[1fr_0.72fr] lg:items-end">
           <div>
             <div className="mb-5 flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.2em] text-blue-400">
-              <BadgeCheck size={15} />
+              <BadgeCheck size={15} animateOnView animation="path" />
               Verified expertise · 04 credentials
             </div>
             <HyperText>Certifications</HyperText>
@@ -113,18 +115,17 @@ export function Certifications() {
                     {cert.focus}
                   </p>
 
-                  <a
-                    href={cert.verifyLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-blue-300 transition-colors hover:text-blue-200 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-400"
-                  >
-                    View credential
-                    <ArrowUpRight
-                      size={14}
-                      className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                    />
-                  </a>
+                  <AnimateIcon animateOnHover animation="path" className="inline-flex">
+                    <a
+                      href={cert.verifyLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-blue-300 transition-colors hover:text-blue-200 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-400"
+                    >
+                      View credential
+                      <ExternalLink size={14} />
+                    </a>
+                  </AnimateIcon>
                 </div>
               </div>
             </article>

@@ -1,5 +1,8 @@
 import Image from "next/image";
-import { ArrowUpRight, Download, MapPin } from "lucide-react";
+import { AnimateIcon } from "@animate-ui/react/icons";
+import { Download } from "@/components/animate-ui/icons/download";
+import { ExternalLink } from "@/components/animate-ui/icons/external-link";
+import { MapPin } from "@/components/animate-ui/icons/map-pin";
 import { BlurFade } from "@/components/ui/blur-fade";
 import { Button } from "@/components/ui/button";
 import { Tile, TileInner } from "@/components/Tile";
@@ -68,7 +71,7 @@ export function Hero() {
                   Open to engineering opportunities
                 </span>
                 <span className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.16em] text-[var(--ink-muted-48)]">
-                  <MapPin size={13} />
+                  <MapPin size={13} animateOnHover animation="path" />
                   Mangaluru · India
                 </span>
               </div>
@@ -117,32 +120,39 @@ export function Hero() {
 
             <BlurFade delay={0.28} initial={false}>
               <div className="mt-9 flex flex-wrap gap-3">
-                <Button
-                  variant="primary"
-                  size="lg"
-                  className="h-12 rounded-full px-6 shadow-lg shadow-blue-600/15 transition-all hover:-translate-y-0.5 hover:shadow-xl"
-                  asChild
-                >
-                  <a href="#projects" className="inline-flex items-center gap-2">
-                    Explore selected work
-                    <ArrowUpRight className="size-4" />
-                  </a>
-                </Button>
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="h-12 rounded-full px-6"
-                  asChild
-                >
-                  <a
-                    href="/Cover Letter/ankush-ananth-bhat.pdf"
-                    download
-                    className="inline-flex items-center gap-2"
+                <AnimateIcon animateOnHover animation="path" className="inline-flex">
+                  <Button
+                    variant="primary"
+                    size="lg"
+                    className="h-12 rounded-full px-6 shadow-lg shadow-blue-600/15 transition-all hover:-translate-y-0.5 hover:shadow-xl"
+                    asChild
                   >
-                    <Download className="size-4" />
-                    Download résumé
-                  </a>
-                </Button>
+                    <a
+                      href="#projects"
+                      className="inline-flex items-center gap-2"
+                    >
+                      Explore selected work
+                      <ExternalLink size={16} />
+                    </a>
+                  </Button>
+                </AnimateIcon>
+                <AnimateIcon animateOnHover animation="path" className="inline-flex">
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="h-12 rounded-full px-6"
+                    asChild
+                  >
+                    <a
+                      href="/Resume/ankush-ananth-bhat.pdf"
+                      download
+                      className="inline-flex items-center gap-2"
+                    >
+                      <Download size={16} />
+                      Download Resume
+                    </a>
+                  </Button>
+                </AnimateIcon>
               </div>
             </BlurFade>
 
@@ -193,18 +203,34 @@ export function Hero() {
                     sizes="(max-width: 1024px) 460px, 36vw"
                     className="object-cover object-center"
                   />
-                  <Image
-                    src="/Ankush.png"
-                    alt=""
-                    fill
-                    aria-hidden
-                    sizes="(max-width: 1024px) 460px, 36vw"
-                    className="object-cover object-center opacity-0 transition-all duration-700 grayscale group-hover/portrait:opacity-100"
-                    style={{
-                      filter:
-                        "grayscale(1) contrast(4.5) brightness(1.35) blur(0.25px)",
-                    }}
-                  />
+                  <div className="pointer-events-none absolute inset-0 [clip-path:inset(0_100%_0_0)] transition-[clip-path] duration-700 ease-out group-hover/portrait:[clip-path:inset(0_0_0_0)]">
+                    <Image
+                      src="/Ankush.png"
+                      alt=""
+                      fill
+                      aria-hidden
+                      sizes="(max-width: 1024px) 460px, 36vw"
+                      className="object-cover object-center grayscale contrast-125 brightness-90"
+                    />
+                    <div className="absolute inset-0 bg-blue-600 mix-blend-color" />
+                    <div className="absolute inset-0 bg-blue-500/25 mix-blend-multiply" />
+                    <div
+                      className="absolute inset-0 opacity-40"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(to right, rgba(147,197,253,0.35) 1px, transparent 1px), linear-gradient(to bottom, rgba(147,197,253,0.35) 1px, transparent 1px)",
+                        backgroundSize: "28px 28px",
+                      }}
+                    />
+                    <span className="absolute left-4 top-4 font-mono text-[9px] uppercase tracking-[0.22em] text-blue-200">
+                      Blueprint / build mode
+                    </span>
+                    <span className="absolute left-3 top-3 size-4 border-l border-t border-blue-200/80" />
+                    <span className="absolute right-3 top-3 size-4 border-r border-t border-blue-200/80" />
+                    <span className="absolute bottom-24 left-3 size-4 border-b border-l border-blue-200/80" />
+                    <span className="absolute bottom-24 right-3 size-4 border-b border-r border-blue-200/80" />
+                  </div>
+                  <div className="pointer-events-none absolute inset-y-0 left-0 w-px bg-blue-300 opacity-0 shadow-[0_0_18px_4px_rgba(96,165,250,0.8)] transition-all duration-700 ease-out group-hover/portrait:left-full group-hover/portrait:opacity-100" />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-transparent to-transparent" />
                   <div className="absolute inset-x-0 bottom-0 p-6 text-white">
                     <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-blue-300">
@@ -230,7 +256,12 @@ export function Hero() {
                           </p>
                         </div>
                       </div>
-                      <ArrowUpRight className="size-5 text-white/60" />
+                      <ExternalLink
+                        size={20}
+                        animateOnHover
+                        animation="path"
+                        className="text-white/60"
+                      />
                     </div>
                   </div>
                 </div>

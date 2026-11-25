@@ -1,4 +1,6 @@
-import { Mail, Download } from "lucide-react";
+import { Download } from "@/components/animate-ui/icons/download";
+import { AnimateIcon } from "@animate-ui/react/icons";
+import { Mail } from "@/components/animate-ui/icons/mail";
 import { LinkedinIcon } from "../Icons/LinkedinIcon";
 import { GithubIcon } from "../Icons/GithubIcon";
 import { Button } from "@/components/ui/button";
@@ -18,33 +20,47 @@ export function Contact() {
         </div>
 
         <div className="mb-8 flex flex-wrap gap-3">
-          <Button variant="primary" size="navPill" asChild>
-            <a href="mailto:ankushbhataab@gmail.com">Email me</a>
-          </Button>
-          <Button variant="secondaryPill" size="navPill" asChild>
-            <a
-              href="/Cover Letter/ankush-ananth-bhat.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Download Cover Letter
-            </a>
-          </Button>
+          <AnimateIcon animateOnHover animation="path" className="inline-flex">
+            <Button variant="primary" size="navPill" asChild>
+              <a
+                href="mailto:ankushbhataab@gmail.com"
+                className="inline-flex items-center gap-2"
+              >
+                <Mail size={16} />
+                Email me
+              </a>
+            </Button>
+          </AnimateIcon>
+          <AnimateIcon animateOnHover animation="path" className="inline-flex">
+            <Button variant="secondaryPill" size="navPill" asChild>
+              <a
+                href="/Resume/ankush-ananth-bhat.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2"
+              >
+                <Download size={16} />
+                Download Resume
+              </a>
+            </Button>
+          </AnimateIcon>
         </div>
 
         <div>
-          <a
-            href="mailto:ankushbhataab@gmail.com"
-            className="flex items-center gap-4 border-t border-[var(--hairline)] py-4"
-          >
-            <Mail size={20} className="text-[var(--primary-action)]" />
-            <div>
-              <p className="t-body-strong">Email</p>
-              <p className="t-caption text-[var(--body-muted)]">
-                ankushbhataab@gmail.com
-              </p>
-            </div>
-          </a>
+          <AnimateIcon animateOnHover animation="path" className="block">
+            <a
+              href="mailto:ankushbhataab@gmail.com"
+              className="flex items-center gap-4 border-t border-[var(--hairline)] py-4"
+            >
+              <Mail size={20} className="text-[var(--primary-action)]" />
+              <div>
+                <p className="t-body-strong">Email</p>
+                <p className="t-caption text-[var(--body-muted)]">
+                  ankushbhataab@gmail.com
+                </p>
+              </div>
+            </a>
+          </AnimateIcon>
 
           <a
             href="https://www.linkedin.com/in/ankushab"

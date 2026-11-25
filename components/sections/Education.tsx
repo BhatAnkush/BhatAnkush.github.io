@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Tile, TileInner } from "@/components/Tile";
 import { HyperText } from "../ui/hyper-text";
 
@@ -19,7 +20,13 @@ export function Education() {
           </div>
 
           <div className="mb-6 flex items-start gap-4">
-            <img src="/sahyadri.jpg" alt="Sahyadri College" className="size-16 shrink-0 rounded-lg object-contain" />
+            <Image
+              src="/sahyadri.jpg"
+              alt="Sahyadri College"
+              width={64}
+              height={64}
+              className="size-16 shrink-0 rounded-lg object-contain"
+            />
             <div>
               <p className="t-body-strong">Sahyadri College of Engineering & Management</p>
               <p className="t-caption text-[var(--body-muted)]">Mangaluru, Karnataka</p>

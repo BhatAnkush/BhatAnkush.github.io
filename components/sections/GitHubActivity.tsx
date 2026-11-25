@@ -2,7 +2,10 @@
 
 import { useEffect, useState } from "react";
 import { Tile, TileInner } from "@/components/Tile";
-import { Star, GitFork, Code, BookMarked } from "lucide-react";
+import { Bot } from "@/components/animate-ui/icons/bot";
+import { FileText } from "@/components/animate-ui/icons/file-text";
+import { Layers } from "@/components/animate-ui/icons/layers";
+import { Star } from "@/components/animate-ui/icons/star";
 import { GithubIcon } from "../Icons/GithubIcon";
 import { HyperText } from "../ui/hyper-text";
 
@@ -47,7 +50,7 @@ export function GitHubActivity() {
 
         // Calculate languages
         const languageMap = new Map<string, number>();
-        reposData.forEach((repo: any) => {
+        reposData.forEach((repo: Repository) => {
           if (repo.language) {
             languageMap.set(
               repo.language,
@@ -134,7 +137,12 @@ export function GitHubActivity() {
           {/* Recent Repositories */}
           <div className="glass-card-dark overflow-hidden rounded-[var(--radius-lg-token)] p-6">
             <div className="mb-6 flex items-center gap-2">
-              <BookMarked className="size-5 text-[var(--primary-action)]" />
+               <FileText
+               size={20}
+               animateOnView
+               animation="path"
+                className="text-[var(--primary-action)]"
+              />
               <h3 className="t-display-sm text-[var(--on-dark)]">
                 Recent Repositories
               </h3>
@@ -164,16 +172,16 @@ export function GitHubActivity() {
                   <div className="flex items-center gap-4">
                     {repo.language && (
                       <span className="flex items-center gap-1.5 t-caption text-[var(--on-dark-muted)]">
-                        <Code className="size-3" />
+                        <Bot size={12} animateOnHover animation="path" />
                         {repo.language}
                       </span>
                     )}
                     <span className="flex items-center gap-1.5 t-caption text-[var(--on-dark-muted)]">
-                      <Star className="size-3" />
+                      <Star size={12} animateOnHover animation="path" />
                       {repo.stargazers_count}
                     </span>
                     <span className="flex items-center gap-1.5 t-caption text-[var(--on-dark-muted)]">
-                      <GitFork className="size-3" />
+                      <Layers size={12} animateOnHover animation="path" />
                       {repo.forks_count}
                     </span>
                   </div>
@@ -199,9 +207,14 @@ export function GitHubActivity() {
           {/* Top Languages */}
           <div className="glass-card-dark overflow-hidden rounded-[var(--radius-lg-token)] p-6">
             <div className="mb-6 flex items-center gap-2">
-              <Code className="size-5 text-[var(--primary-action)]" />
+              <Bot
+               size={20}
+               animateOnView
+               animation="path"
+               className="text-[var(--primary-action)]"
+              />
               <h3 className="t-display-sm text-[var(--on-dark)]">
-                Top Languages
+               Top Languages
               </h3>
             </div>
             <div className="space-y-4">

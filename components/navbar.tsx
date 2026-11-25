@@ -1,9 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
 import { cn } from "@/lib/utils";
-import { Menu, X, Download } from "lucide-react";
+import { Download } from "@/components/animate-ui/icons/download";
+import { Menu } from "@/components/animate-ui/icons/menu";
+import { AnimateIcon } from "@animate-ui/react/icons";
+import { X } from "@/components/animate-ui/icons/x";
 
 const NAV_LINKS = [
   { href: "#about", label: "About" },
@@ -61,7 +65,7 @@ export function Navbar() {
     // If section doesn't exist, navigate to homepage with hash
     else if (window.location.pathname !== "/") {
       e.preventDefault();
-      window.location.href = "/" + href;
+      window.location.assign("/" + href);
     }
 
     setMenuOpen(false);
@@ -84,7 +88,11 @@ export function Navbar() {
             onClick={() => setMenuOpen((v) => !v)}
             aria-label="Toggle menu"
           >
-            {menuOpen ? <X size={18} /> : <Menu size={18} />}
+            {menuOpen ? (
+              <X size={18} animateOnTap animation="path" />
+            ) : (
+              <Menu size={18} animateOnTap animation="path" />
+            )}
           </button>
         </div>
       </div>
@@ -98,7 +106,7 @@ export function Navbar() {
         }}
       >
         <span className="t-tagline shrink-0 text-[var(--ink)]">
-          <img src="/favicon.svg" alt="favicon" />
+          <Image src="/favicon.svg" alt="Home" width={32} height={32} />
         </span>
 
         <ul className="hidden min-[834px]:flex min-[834px]:flex-wrap min-[834px]:items-center min-[834px]:justify-end min-[834px]:gap-1 min-[834px]:pl-4">
@@ -124,14 +132,16 @@ export function Navbar() {
         </ul>
 
         <div className="flex shrink-0 items-center gap-2 min-[834px]:ml-4">
-          <a
-            href="/Cover Letter/ankush-ananth-bhat.pdf"
-            download
-            className="t-button-utility inline-flex items-center gap-1.5 rounded-full bg-[var(--ink)] px-4 py-1.5 text-xs text-[var(--on-dark)] dark:text-black transition-opacity hover:opacity-90"
-          >
-            <Download className="size-3.5" />
-            Cover Letter
-          </a>
+          <AnimateIcon animateOnHover animation="path" className="inline-flex">
+            <a
+              href="/Resume/ankush-ananth-bhat.pdf"
+              download
+              className="t-button-utility inline-flex items-center gap-1.5 rounded-full bg-[var(--ink)] px-4 py-1.5 text-xs text-[var(--on-dark)] dark:text-black transition-opacity hover:opacity-90"
+            >
+              <Download size={14} />
+              Resume
+            </a>
+          </AnimateIcon>
         </div>
       </nav>
 
@@ -163,13 +173,13 @@ export function Navbar() {
               );
             })}
             <a
-              href="/Cover Letter/ankush-ananth-bhat.pdf"
+              href="/Resume/ankush-ananth-bhat.pdf"
               download
               onClick={() => setMenuOpen(false)}
               className="t-button-utility mt-2 flex cursor-pointer items-center gap-2 rounded-[var(--radius-sm-token)] border border-[var(--hairline)] px-3 py-3 text-[var(--ink)] dark:text-[var(--on-dark)]"
             >
-              <Download size={16} />
-              Download Cover Letter
+              <Download size={16} animateOnHover animation="path" />
+              Download Resume
             </a>
           </div>
         </div>

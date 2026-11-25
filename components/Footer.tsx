@@ -1,11 +1,13 @@
-import { Mail, FileText, ArrowUpRight, BookMarked } from "lucide-react";
+import { ExternalLink } from "@/components/animate-ui/icons/external-link";
+import { FileText } from "@/components/animate-ui/icons/file-text";
+import { Mail } from "@/components/animate-ui/icons/mail";
 import { GithubIcon } from "./Icons/GithubIcon";
 import { LinkedinIcon } from "./Icons/LinkedinIcon";
 
 export function Footer() {
   return (
-    <footer className="border-t border-[var(--glass-border)] bg-[var(--tile-parchment)] backdrop-blur-xl">
-      <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-6">
+    <footer className="border-t border-(--glass-border) bg-(--tile-parchment) backdrop-blur-xl">
+      <div className="mx-auto w-full max-w-360 px-5 sm:px-6">
         {/* Top Section: Asymmetric Grid */}
         <div className="grid grid-cols-1 gap-12 py-16 md:grid-cols-12 md:gap-8 lg:py-20">
           {/* Brand & Status (Takes up more space on the left) */}
@@ -63,9 +65,17 @@ export function Footer() {
                       rel="noopener noreferrer"
                       className="group flex w-fit items-center gap-2 text-sm text-[var(--ink-muted-80)] transition-all hover:text-[var(--ink)] dark:text-[var(--body-muted)] dark:hover:text-[var(--on-dark)]"
                     >
-                      <Icon className="size-4 shrink-0 opacity-70 transition-opacity group-hover:opacity-100" />
+                      <Icon
+                        size={16}
+                        className="shrink-0 opacity-70 transition-opacity group-hover:opacity-100"
+                      />
                       <span>{label}</span>
-                      <ArrowUpRight className="size-3.5 -translate-x-1 translate-y-1 opacity-0 transition-all duration-200 ease-out group-hover:translate-x-0 group-hover:translate-y-0 group-hover:opacity-100" />
+                      <ExternalLink
+                        size={14}
+                        animateOnHover
+                        animation="path"
+                        className="-translate-x-1 translate-y-1 opacity-0 transition-all duration-200 ease-out group-hover:translate-x-0 group-hover:translate-y-0 group-hover:opacity-100"
+                      />
                     </a>
                   </li>
                 ))}
@@ -80,14 +90,14 @@ export function Footer() {
               <ul className="flex flex-col space-y-3">
                 {[
                   {
-                    label: "Cover Letter",
-                    href: "/Cover Letter/ankush-ananth-bhat.pdf",
+                    label: "Resume",
+                    href: "/Resume/ankush-ananth-bhat.pdf",
                     Icon: FileText,
                   },
                   {
                     label: "View Projects",
                     href: "https://github.com/BhatAnkush?tab=repositories",
-                    Icon: BookMarked,
+                    Icon: FileText,
                   },
                 ].map(({ label, href, Icon }) => (
                   <li key={label}>
@@ -97,7 +107,10 @@ export function Footer() {
                       rel="noopener noreferrer"
                       className="group flex w-fit items-center gap-2 text-sm text-[var(--ink-muted-80)] transition-all hover:text-[var(--ink)] dark:text-[var(--body-muted)] dark:hover:text-[var(--on-dark)]"
                     >
-                      <Icon className="size-4 shrink-0 opacity-70 transition-opacity group-hover:opacity-100" />
+                      <Icon
+                        size={16}
+                        className="shrink-0 opacity-70 transition-opacity group-hover:opacity-100"
+                      />
                       <span>{label}</span>
                     </a>
                   </li>

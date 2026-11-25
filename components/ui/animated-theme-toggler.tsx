@@ -1,7 +1,8 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { Moon, Sun } from "lucide-react";
+import { Moon } from "@/components/animate-ui/icons/moon";
+import { Sun } from "@/components/animate-ui/icons/sun";
 import { flushSync } from "react-dom";
 
 import { cn } from "@/lib/utils";
@@ -264,7 +265,11 @@ export const AnimatedThemeToggler = ({
       )}
       {...props}
     >
-      {isDark ? <Sun /> : <Moon />}
+      {isDark ? (
+        <Sun size={18} animateOnTap animation="path" />
+      ) : (
+        <Moon size={18} animateOnTap animation="path" />
+      )}
       <span className="sr-only">Toggle theme</span>
     </button>
   );

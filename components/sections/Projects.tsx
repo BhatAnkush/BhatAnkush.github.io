@@ -1,5 +1,7 @@
+import Image from "next/image";
 import { TagPill } from "@/components/TagPill";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink } from "@/components/animate-ui/icons/external-link";
+import { AnimateIcon } from "@animate-ui/react/icons";
 import { GithubIcon } from "../Icons/GithubIcon";
 import { Tile, TileInner } from "@/components/Tile";
 import { HyperText } from "../ui/hyper-text";
@@ -49,6 +51,15 @@ const PROJECTS = [
     github: "",
     live: "https://bronzesolar.com/",
   },
+  {
+    title: "Astro Fortune by Katyaini",
+    image: "/project/astrofortunebykatyaini.png",
+    description:
+      "A comprehensive astrology platform offering personalized horoscopes, astrological insights, and interactive features for users to explore their cosmic journey.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS","RazorPay","WordPress"],
+    github: "",
+    live:"https://www.astrofortunebykatyaini.com/"
+  }
 ];
 
 export function Projects() {
@@ -75,9 +86,11 @@ export function Projects() {
                   isStatic={false}
                   ariaLabel="Zoom Area"
                 >
-                  <img
+                  <Image
                     src={project.image}
                     alt={project.title}
+                    width={640}
+                    height={320}
                     className="h-[320px] w-full object-cover"
                   />
                 </Lens>
@@ -106,14 +119,16 @@ export function Projects() {
                   </a>
                 )}
                 {project.live && (
-                  <a
-                    href={project.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-link inline-flex items-center gap-1.5"
-                  >
-                    <ExternalLink size={16} /> Live
-                  </a>
+                  <AnimateIcon animateOnHover animation="path" className="inline-flex">
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-link inline-flex items-center gap-1.5"
+                    >
+                      <ExternalLink size={16} /> Live
+                    </a>
+                  </AnimateIcon>
                 )}
                 {!project.github && !project.live && (
                   <span className="text-[var(--ink-muted-48)]">

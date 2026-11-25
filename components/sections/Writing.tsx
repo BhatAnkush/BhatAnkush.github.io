@@ -1,8 +1,9 @@
+import Image from "next/image";
 import { Tile, TileInner } from "@/components/Tile";
 import { getSortedPostsData } from "@/lib/posts";
 import { HyperText } from "../ui/hyper-text";
 import { BlurFade } from "@/components/ui/blur-fade";
-import { ArrowUpRight } from "lucide-react";
+import { ExternalLink } from "@/components/animate-ui/icons/external-link";
 
 const CATEGORY_STYLES: Record<string, string> = {
   Frontend:
@@ -55,9 +56,11 @@ export function Writing() {
               className="group glass-card rounded-[var(--radius-lg-token)] overflow-hidden flex flex-col md:flex-row mb-6 no-underline"
             >
               <div className="md:w-[44%] aspect-video md:aspect-auto overflow-hidden bg-[var(--canvas-parchment)] shrink-0">
-                <img
+                <Image
                   src={featured.image}
                   alt={featured.title}
+                  width={960}
+                  height={540}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
@@ -74,7 +77,12 @@ export function Writing() {
                 </p>
                 <span className="mt-1 inline-flex items-center gap-1.5 text-[var(--primary-action)] font-semibold text-sm transition-all group-hover:gap-3">
                   Read article
-                  <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  <ExternalLink
+                    size={16}
+                    animateOnHover
+                    animation="path"
+                    className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                  />
                 </span>
               </div>
             </a>
@@ -91,9 +99,11 @@ export function Writing() {
                   className="group glass-card rounded-[var(--radius-lg-token)] overflow-hidden flex flex-col h-full no-underline"
                 >
                   <div className="aspect-video overflow-hidden bg-[var(--canvas-parchment)]">
-                    <img
+                    <Image
                       src={post.image}
                       alt={post.title}
+                      width={720}
+                      height={405}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
@@ -110,7 +120,12 @@ export function Writing() {
                     </p>
                     <span className="mt-1 inline-flex items-center gap-1.5 text-[var(--primary-action)] font-semibold text-sm transition-all group-hover:gap-3">
                       Read article
-                      <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                      <ExternalLink
+                        size={16}
+                        animateOnHover
+                        animation="path"
+                        className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                      />
                     </span>
                   </div>
                 </a>

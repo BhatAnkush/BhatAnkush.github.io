@@ -1,5 +1,10 @@
-// Inline script to apply theme before first paint — avoids flash of wrong theme
+"use client";
+
+// Applies theme before first paint — avoids flash of wrong theme.
+// Rendered only on the server so React never creates a <script> on the client.
 export function ThemeScript() {
+  if (typeof window !== "undefined") return null;
+
   const script = `
     (function() {
       try {
@@ -12,5 +17,10 @@ export function ThemeScript() {
       } catch(e) {}
     })();
   `;
-  return <script dangerouslySetInnerHTML={{ __html: script }} />;
+  return (
+    <script
+      suppressHydrationWarning
+      dangerouslySetInnerHTML={{ __html: script }}
+    />
+  );
 }
