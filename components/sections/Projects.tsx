@@ -55,7 +55,7 @@ const PROJECTS = [
     title: "Astro Fortune by Katyaini",
     image: "/project/astrofortunebykatyaini.png",
     description:
-      "A comprehensive astrology platform offering personalized horoscopes, astrological insights, and interactive features for users to explore their cosmic journey.",
+      "End-to-end development of a comprehensive astrology platform featuring personalized horoscopes, astrological insights, and interactive features for users to explore their cosmic journey. Fully responsive and user-friendly.",
     tech: ["Next.js", "TypeScript", "Tailwind CSS","RazorPay","WordPress"],
     github: "",
     live:"https://www.astrofortunebykatyaini.com/"
